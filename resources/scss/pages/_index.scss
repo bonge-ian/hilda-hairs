@@ -1,0 +1,93 @@
+// hero
+.hero .overlay {
+    backdrop-filter: blur(5px) contrast(0.8);
+    background-color: rgba(238, 212, 155, 0.6);
+}
+
+@media (max-width: $breakpoint-medium) {
+    .hero .uk-background-cover {
+        background-position-x: 20%;
+    }
+}
+
+@media (max-width: $breakpoint-medium) {
+    .hero .uk-background-cover {
+        background-position-x: 23%;
+    }
+}
+
+// collections
+.wigs {
+    background-color: rgba(54, 53, 59, 0.2);
+
+    .wig-caption {
+        @include translucent-text(rgb(255, 255, 255), 0.55, 10rem);
+        @media (max-width: $breakpoint-medium) {
+            & {
+                font-size: 6rem;
+            }
+        }
+    }
+}
+.clipins {
+    background-color: rgba(12, 13, 15, 0.2);
+
+    .clipin-caption {
+        @include translucent-text(rgb(255, 255, 255), 0.65, 4.2rem);
+        @media (max-width: $breakpoint-medium) {
+            & {
+                font-size: 5rem;
+            }
+        }
+    }
+}
+.frontals {
+    background-color: rgba(202, 145, 164, 0.2);
+
+    .frontal-caption {
+        @include translucent-text(rgb(255, 255, 255), 0.65, 4rem);
+        @media (max-width: $breakpoint-medium) {
+            & {
+                font-size: 4rem;
+            }
+        }
+    }
+}
+.laces {
+    background-color: rgba(192, 175, 151, 0.2);
+
+    .laces-caption {
+        @include translucent-text(rgb(255, 255, 255), 0.65, 8rem);
+        @media (max-width: $breakpoint-medium) {
+            & {
+                font-size: 6rem;
+            }
+        }
+    }
+}
+
+.weaves {
+    background-color: rgba(239, 115, 63, 0.2);
+
+    .weave-caption {
+        @include translucent-text(rgb(255, 255, 255), 0.65, 8rem);
+        @media (max-width: $breakpoint-medium) {
+            & {
+                font-size: 5.5rem;
+            }
+        }
+    }
+}
+
+.extensions {
+    background-color: rgba(199, 203, 211, 0.2);
+
+    .extension-caption {
+        @include translucent-text(rgb(240, 245, 255), 0.95, 6.8rem);
+        @media (max-width: $breakpoint-medium) {
+            & {
+                font-size: 3.75rem;
+            }
+        }
+    }
+}

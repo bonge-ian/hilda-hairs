@@ -1,0 +1,19 @@
+@mixin hook-icon-button {
+    background: 0;
+    border-radius: 0;
+    color: #fff;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #fff;
+    transition: 0.1s ease-in-out;
+    transition-property: color,border-color, box-shadow;
+}
+
+@mixin hook-icon-button-hover {
+    color: $global-primary-background;
+    border-color: $global-primary-background;
+}
+
+@mixin hook-icon-button-active {
+    @include hook-icon-button-hover();
+}

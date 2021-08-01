@@ -1,0 +1,4 @@
+// image placeholder
+img[data-src][src*='data:image'] {
+	background: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,19 @@
+@mixin hook-slidenav {
+    background: $global-secondary-background;
+    color: $global-primary-background;
+    transition: .1s ease-in-out;
+    transition-property: color,background-color,border-color,box-shadow;
+}
+
+@mixin hook-slidenav-hover {
+    color: $global-secondary-background;
+    background: $global-primary-background;
+}
+
+@mixin hook-slidenav-active {
+    @include hook-slidenav();
+}
+
+@mixin hook-slidenav-large {
+    padding: 1rem 1.1rem;
+}

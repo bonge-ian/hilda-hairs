@@ -1,0 +1,72 @@
+@mixin hook-button-default {
+	background-color: transparent;
+	color: $global-primary-background;
+	border: 1px solid $global-primary-background;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	transition-property: color, background-color, border-color;
+	transition-duration: 0.5s;
+
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		background-color: $global-primary-background;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		transition-property: transform;
+		transition-duration: 0.5s;
+		transition-timing-function: ease-out;
+	}
+}
+
+@mixin hook-button-default-hover {
+	background-color: $global-primary-background;
+	color: $global-background;
+	border-color: transparent;
+
+	&::before {
+		transform: scaleX(1);
+		-webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+		transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+	}
+}
+
+@mixin hook-button-default-active {
+	@include hook-button-default-hover();
+}
+
+@mixin hook-button-primary {
+	background-color: $global-primary-background;
+	color: $global-background;
+	border: 1px solid transparent;
+	@include button-glow-effect($global-primary-background);
+}
+@mixin hook-button-primary-hover {
+	background-color: lighten($color: $global-primary-background, $amount: 10%);
+	color: $global-background;
+}
+
+@mixin hook-button-primary-active {
+	@include hook-button-primary-hover();
+}
+
+@mixin hook-button-secondary {
+	background-color: $global-secondary-background;
+	color: #fff;
+	border: 1px solid transparent;
+	@include button-glow-effect($global-secondary-background);
+}
+@mixin hook-button-secondary-hover {
+	background-color: lighten($color: $global-secondary-background, $amount: 10%);
+	color: #fff;
+}
+
+@mixin hook-button-secondary-active {
+	@include hook-button-secondary-hover();
+}
