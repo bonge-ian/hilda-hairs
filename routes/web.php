@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.index');
+	return view('pages.index');
 });
 
 Route::view('dashboard', 'dashboard')
@@ -23,4 +24,9 @@ Route::view('dashboard', 'dashboard')
 
 Route::prefix('user')->middleware(['auth', 'verified'])->group(function () {
 	Route::view('profile', 'profile.show');
+});
+
+Route::prefix('categories')->name('category.')->group(function () {
+	Route::get('/', [CategoryController::class, 'index'])->name('index');
+	Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('show');
 });

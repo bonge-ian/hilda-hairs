@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Home">
     {{-- hero section --}}
     <section class="hero uk-section uk-section-default uk-padding-remove-vertical">
         <div class="uk-container uk-container-expand">
@@ -34,7 +34,8 @@
                 <div class="uk-grid uk-grid-collapse uk-child-width-1-2@m uk-child-width-1-1 uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-panel uk-tile uk-background-cover uk-background-center-center wigs uk-flex uk-flex-center uk-flex-middle"
-                            data-src="{{ asset('storage/img/wig.jpg') }} " uk-img uk-scrollspy="uk-animation-slide-left-small">
+                            data-src="{{ asset('storage/img/wig.jpg') }} " uk-img
+                            uk-scrollspy="uk-animation-slide-left-small">
                             <div class="uk-flex uk-flex-center uk-flex-middle uk-flex-column"
                                 uk-scrollspy="uk-animation-fade">
                                 <h5 class="uk-h2 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">Elite</h5>
@@ -54,8 +55,8 @@
                                     <div class="uk-width-1-2@m" uk-scrollspy-class="uk-animation-slide-left-small">
                                         <div class="uk-panel uk-inline-clip">
                                             <canvas width="1080" height="1350"></canvas>
-                                            <img data-src="{{ asset('storage/img/clipins.jpg') }} " width="1080" height="1350" alt=""
-                                                uk-cover uk-img />
+                                            <img data-src="{{ asset('storage/img/clipins.jpg') }} " width="1080"
+                                                height="1350" alt="" uk-cover uk-img />
 
                                             <div class="
     													clipins
@@ -91,7 +92,7 @@
                                     <div class="uk-width-1-2@m" uk-scrollspy-class="uk-animation-slide-right-small">
                                         <div class="uk-panel uk-inline-clip">
                                             <canvas width="1080" height="1350"></canvas>
-                                            <img data-src="dist/img/frontal.jpg" width="1080" height="1620" alt=""
+                                            <img data-src="{{ asset('storage/img/frontal.jpg') }}" width="1080" height="1620" alt=""
                                                 uk-cover uk-img />
 
                                             <div class="
@@ -127,7 +128,8 @@
                             <div>
                                 <div class="uk-panel uk-inline-clip"
                                     uk-scrollspy-class="uk-animation-slide-bottom-small">
-                                    <img data-src="{{ asset('storage/img/lace.jpg') }}" width="1375" height="1080" alt="" uk-img />
+                                    <img data-src="{{ asset('storage/img/lace.jpg') }}" width="1375" height="1080"
+                                        alt="" uk-img />
                                     <div class="
     												uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column
     												laces
@@ -158,7 +160,8 @@
                 <div class="uk-panel" uk-scrollspy-class="uk-animation-slide-left-small">
                     <figure class="uk-inline-clip">
                         <canvas width="960" height="640"></canvas>
-                        <img data-src="{{ asset('storage/img/weave.jpg') }} " alt="" width="960" height="640" uk-cover uk-img />
+                        <img data-src="{{ asset('storage/img/weave.jpg') }} " alt="" width="960" height="640" uk-cover
+                            uk-img />
 
                         <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle weaves">
                             <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold"
@@ -179,7 +182,8 @@
                 <div class="uk-panel" uk-scrollspy-class="uk-animation-slide-right-small">
                     <figure class="uk-inline-clip">
                         <canvas width="960" height="640"></canvas>
-                        <img data-src="{{ asset('storage/img/ext.jpg') }}" alt="" width="960" height="640" uk-cover uk-img />
+                        <img data-src="{{ asset('storage/img/ext.jpg') }}" alt="" width="960" height="640" uk-cover
+                            uk-img />
 
                         <div class="
     									uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle
@@ -205,12 +209,14 @@
     </section>
 
     {{-- about us intro --}}
-    <section class="uk-section uk-section-default" uk-scrollspy="target: [uk-scrollspy-class]; delay: 200;repeat: false;">
+    <section class="uk-section uk-section-default"
+        uk-scrollspy="target: [uk-scrollspy-class]; delay: 200;repeat: false;">
         <div class="uk-grid uk-grid-medium uk-child-width-1-1 uk-grid-match" uk-grid>
             <aside class="uk-width-1-3@m">
                 <div class="uk-cover-container" uk-scrollspy-class="uk-animation-slide-left-medium">
                     <canvas width="619" height="929"></canvas>
-                    <img data-src="{{ asset('storage/img/happy.jpg')}}" alt="" width="619" height="929" uk-cover uk-img />
+                    <img data-src="{{ asset('storage/img/happy.jpg')}}" alt="" width="619" height="929" uk-cover
+                        uk-img />
                 </div>
                 <div class="uk-tile" uk-scrollspy-class="uk-animation-slide-left-medium">
                     <h5 class="uk-h2 uk-text-uppercase uk-text-bold">About Us</h5>
@@ -232,7 +238,8 @@
             <div class="uk-width-2-3@m">
                 <div class="uk-tile uk-tile-large uk-padding-remove-horizontal uk-padding-remove-bottom">
                     <div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                        <div class="uk-flex-last@s uk-card-media-right uk-cover-container" uk-scrollspy-class="uk-animation-slide-right-medium">
+                        <div class="uk-flex-last@s uk-card-media-right uk-cover-container"
+                            uk-scrollspy-class="uk-animation-slide-right-medium">
                             <img data-src="{{ asset('storage/img/happy2.jpg') }}" alt="" uk-cover uk-img />
                             <canvas width="600" height="400"></canvas>
                         </div>
@@ -248,7 +255,8 @@
                         <div class="uk-width-2xlarge@m">
                             <figure class="uk-cover-container" uk-scrollspy-class="uk-animation-slide-right-medium">
                                 <canvas width="600" height="839"></canvas>
-                                <img data-src="{{ asset('storage/img/ponytail.jpg') }}" alt="" width="600" height="839" uk-cover uk-img />
+                                <img data-src="{{ asset('storage/img/ponytail.jpg') }}" alt="" width="600" height="839"
+                                    uk-cover uk-img />
                             </figure>
                         </div>
                     </div>
@@ -264,7 +272,8 @@
                 uk-scrollspy="target: [uk-scrollspy-class];cls: uk-animation-slide-bottom-medium;delay: 200;">
                 <aside class="uk-width-1-3@l">
                     <div class="uk-tile uk-tile-large uk-panel">
-                        <h4 class="uk-h1 uk-text-bold uk-text-uppercase" uk-scrollspy-class="uk-animation-slide-top-small">
+                        <h4 class="uk-h1 uk-text-bold uk-text-uppercase"
+                            uk-scrollspy-class="uk-animation-slide-top-small">
                             Featured Collection
                         </h4>
                         <hr uk-scrollspy-class="uk-animation-slide-top-small" class="uk-divider-small" />
@@ -278,15 +287,16 @@
                 </aside>
                 <div class="uk-width-2-3@l uk-flex-middle" uk-scrollspy-class="uk-animation-slide-bottom-medium">
                     <div class="uk-panel uk-width-1-1">
-                        <div class="uk-text-center uk-container-item-padding-remove-right uk-slider uk-slider-container" uk-slider="autoplay: 1;">
+                        <div class="uk-text-center uk-container-item-padding-remove-right uk-slider uk-slider-container"
+                            uk-slider="autoplay: 1;">
                             <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
                                 <ul class="uk-slider-items uk-grid uk-grid-small">
                                     <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/1.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/1.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -304,7 +314,8 @@
                                                 </div>
                                                 <div class="uk-grid grid-collapse" uk-grid>
                                                     <div class="uk-width-auto">
-                                                        <a href="#" class="uk-button uk-button-primary uk-button-small">Add
+                                                        <a href="#"
+                                                            class="uk-button uk-button-primary uk-button-small">Add
                                                             to Cart</a>
                                                     </div>
                                                     <div class="uk-width-expand uk-text-right">
@@ -322,8 +333,8 @@
                                         <div class="uk-card uk-card-default uk-cover-container">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/2.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/2.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -360,8 +371,8 @@
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/3.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/3.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -398,8 +409,8 @@
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/4.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/4.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -436,8 +447,8 @@
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/5.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/5.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -455,7 +466,8 @@
                                                 </div>
                                                 <div class="uk-grid grid-collapse" uk-grid>
                                                     <div class="uk-width-auto">
-                                                        <a href="#" class="uk-button uk-button-primary uk-button-small">Add
+                                                        <a href="#"
+                                                            class="uk-button uk-button-primary uk-button-small">Add
                                                             to Cart</a>
                                                     </div>
                                                     <div class="uk-width-expand uk-text-right">
@@ -473,8 +485,8 @@
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/6.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/6.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -492,7 +504,8 @@
                                                 </div>
                                                 <div class="uk-grid grid-collapse" uk-grid>
                                                     <div class="uk-width-auto">
-                                                        <a href="#" class="uk-button uk-button-primary uk-button-small">Add
+                                                        <a href="#"
+                                                            class="uk-button uk-button-primary uk-button-small">Add
                                                             to Cart</a>
                                                     </div>
                                                     <div class="uk-width-expand uk-text-right">
@@ -510,8 +523,8 @@
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/7.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/7.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -548,8 +561,8 @@
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-media-top uk-cover-container">
                                                 <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/8.jpg') }}" alt="" width="445" height="649" uk-cover
-                                                    uk-img />
+                                                <img data-src="{{ asset('storage/img/8.jpg') }}" alt="" width="445"
+                                                    height="649" uk-cover uk-img />
                                             </div>
                                             <div class="uk-card-body uk-padding-small">
                                                 <div class="uk-grid grid-collapse" uk-grid>
@@ -583,7 +596,8 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="uk-visible@m uk-hidden-hover uk-hidden-touch uk-slidenav-container uk-position-top-right">
+                                <div
+                                    class="uk-visible@m uk-hidden-hover uk-hidden-touch uk-slidenav-container uk-position-top-right">
                                     <a class="uk-slidenav-large uk-icon uk-slidenav-previous uk-slidenav" href="#"
                                         uk-slidenav-previous="" uk-slider-item="previous"></a>
                                     <a class="uk-slidenav-large uk-icon uk-slidenav-next uk-slidenav" href="#"
