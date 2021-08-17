@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Helpers\Breadcrumbs\Breadcrumbs;
+use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // breadcrumb macro
+        Request::macro(
+            'breadcrumbs',
+            fn () => new Breadcrumbs($this)
+        );
     }
 }
