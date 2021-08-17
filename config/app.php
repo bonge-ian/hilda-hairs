@@ -177,6 +177,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\FortifyUIServiceProvider::class,
         App\Providers\BladeComponentServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 

@@ -1,88 +1,36 @@
-{{-- <nav class="uk-background-default uk-box-shadow-small" uk-navbar>
-	<div class="uk-navbar-left">
-		<a class="uk-navbar-item uk-logo" href="#">
-			<img data-src="https://laravel.com/img/logomark.min.svg" alt="Laravel Logo" uk-svg uk-img width="40" height="40">
-		</a>
-
-		<ul class="uk-navbar-nav">
-			@auth
-				<li class="{{ request()->routeIs('dashboard') ? 'uk-active' : '' }}">
-					<a href="{{ route('dashboard') }}">Dashboard</a>
-				</li>
-			@endauth
-		</ul>
-	</div>
-
-	<div class="uk-navbar-right">
-		<ul class="uk-navbar-nav">
-			<li>
-				<a href="#"><span uk-icon="grid"></span></a>
-				<div class="uk-navbar-dropdown uk-width-medium">
-					<ul class="uk-nav uk-navbar-dropdown-nav">
-						<!-- Authentication Links -->
-						@guest
-							<li class="{{ request()->routeIs('login') ? 'uk-active' : '' }}">
-								<a href="{{ route('login') }}">
-									<span uk-icon="sign-in" class="uk-margin-small-right"></span>
-									{{ __('Login') }}
-								</a>
-							</li>
-
-						@if (Route::has('register'))
-							<li class="{{ request()->routeIs('register') ? 'uk-active' : '' }}">
-								<a href="{{ route('register') }}">
-									<span uk-icon="user" class="uk-margin-small-right"></span>
-									{{ __('Register') }}
-								</a>
-							</li>
-						@endif
-						@else
-							<li class="uk-nav-header">
-								Hi, {{ Auth::user()->name }}
-							</li>
-
-							<li class="uk-nav-divider"></li>
-
-							<li>
-								<a href="/user/profile">
-									<span uk-icon="user" class="uk-margin-small-right"></span>
-									Profile
-								</a>
-							</li>
-
-							<li>
-								<a href="{{ route('logout') }}"
-									onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-									<span uk-icon="sign-out" class="uk-margin-small-right"></span>
-									Logout
-								</a>
-
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" uk-hidden>
-									@csrf
-								</form>
-							</li>
-						@endguest
-					</ul>
-				</div>
-			</li>
-		</ul>
-	</div>
-</nav> --}}
-
 <header uk-sticky="sel-target: .uk-navbar-container;animation: uk-animation-slide-top;show-on-up: true">
 	<div class="uk-navbar-container">
 		<div class="uk-container uk-container-expand">
-			<nav uk-navbar="align: left;boundary: .uk-navbar-container;">
+			<nav uk-navbar="align: left; boundary: .uk-navbar-container">
 				<div class="uk-navbar-left">
 					<ul class="uk-navbar-nav">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li>
-							<a href="#">Shop</a>
+							<a href="#">Categories</a>
 							<div class="uk-navbar-dropdown">
 								<ul class="uk-nav uk-navbar-dropdown-nav">
-									<li><a href="#">Wigs</a></li>
-									<li><a href="#">Weaves</a></li>
-									<li><a href="#">Hair Extensions</a></li>
+									@foreach ($categories as $category)
+										<li>
+											<a
+												href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
+
+											{{-- @if ($category->children->count())
+												<div class="uk-navbar-dropdown"
+													uk-drop="pos: right-center;boundary: .uk-navbar-dropdown.uk-open.uk-navbar-dropdown-bottom-left;boundary-align: true;offset: 6;animation: uk-animation-slide-left-small; duration: 400">
+													<ul class="uk-nav uk-navbar-dropdown-nav">
+														@foreach ($category->children as $subCategory)
+															<li>
+																<a
+																	href="{{ route('category.show', $subCategory->slug) }}">
+																	{{ $subCategory->name }}
+																</a>
+															</li>
+														@endforeach
+													</ul>
+												</div>
+											@endif --}}
+										</li>
+									@endforeach
 								</ul>
 							</div>
 						</li>
@@ -111,7 +59,8 @@
 
 						<li class="{{ request()->routeIs('login') ? 'uk-active' : '' }}">
 
-							<a href="{{ route('login') }}" class="uk-icon" uk-icon="icon: sign-in" uk-tooltip="title: Login">
+							<a href="{{ route('login') }}" class="uk-icon" uk-icon="icon: sign-in"
+								uk-tooltip="title: Login">
 								{{-- <span uk-icon="sign-in" class="uk-margin-small-right "></span>
 								{{ __('Login') }} --}}
 							</a>
@@ -119,7 +68,8 @@
 
 						@if (Route::has('register'))
 						<li class="{{ request()->routeIs('register') ? 'uk-active' : '' }}">
-							<a href="{{ route('register') }}" class="uk-icon" uk-icon="icon: register" uk-tooltip="title: Register">
+							<a href="{{ route('register') }}" class="uk-icon" uk-icon="icon: register"
+								uk-tooltip="title: Register">
 								{{-- <span uk-icon="user" class="uk-margin-small-right "></span>
 								{{ __('Register') }} --}}
 							</a>
@@ -140,7 +90,8 @@
 						</li>
 
 						<li>
-							<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+							<a href="{{ route('logout') }}"
+								onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 								<span uk-icon="sign-out" class="uk-margin-small-right"></span>
 								Logout
 							</a>
