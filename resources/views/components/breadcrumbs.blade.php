@@ -4,7 +4,16 @@
             <a href="/">Home</a>
         </li>
         @foreach (request()->breadcrumbs()->segments() as $segment)
-            <li><a href="{{ $segment->url() }}">{{ $segment->name() }}</a></li>
+            @if ($loop->last)
+                <li>
+                    <span>{{ $segment->name() }}</span>
+                </li>
+                @else
+                <li><a href="{{ $segment->url() }}">{{ $segment->name() }}</a></li>
+            @endif
+
+
+
         @endforeach
     </ul>
 </nav>
