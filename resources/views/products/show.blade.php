@@ -74,6 +74,12 @@
                                 class="uk-h2 uk-margin uk-margin-remove-bottom uk-width-xlarge uk-margin-auto@m uk-text-left uk-text-uppercase uk-text-bold">
                                 {{ $product->name }}
                             </h1>
+
+                            <div class="uk-panel uk-margin uk-width-xlarge uk-margin-auto@m">
+                                <p class="uk-label uk-label-success">
+                                    {{ $product->type }}
+                                </p>
+                            </div>
                             {{-- ratings --}}
 
                             <div class="uk-panel uk-margin uk-width-xlarge uk-margin-auto@m">

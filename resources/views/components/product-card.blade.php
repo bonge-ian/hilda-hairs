@@ -1,4 +1,5 @@
 <div class="uk-card uk-card-default">
+    <div class="uk-card-badge uk-label uk-position-top-right">{{ $product->type }}</div>
     <div class="uk-card-media-top uk-cover-container">
         <a href="{{ route('product.show', $product->slug) }}" class="uk-link-reset">
             <canvas width="433" height="650"></canvas>
