@@ -34,11 +34,10 @@
                 <div class="uk-grid uk-grid-collapse uk-child-width-1-2@m uk-child-width-1-1 uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-panel uk-tile uk-background-cover uk-background-center-center wigs uk-flex uk-flex-center uk-flex-middle"
-                            data-src="{{ asset('storage/img/wig.jpg') }} " uk-img
-                            uk-scrollspy="uk-animation-slide-left-small">
+                            data-src="{{ asset('storage/img/wig.jpg') }} " uk-img>
                             <div class="uk-flex uk-flex-center uk-flex-middle uk-flex-column"
                                 uk-scrollspy="uk-animation-fade">
-                                <h5 class="uk-h2 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">Elite</h5>
+                                <h5 class="uk-h2 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">Exquisite</h5>
                                 <h4 class="wig-caption uk-text-uppercase uk-margin-medium-top uk-margin-remove-bottom">
                                     Wigs
                                 </h4>
@@ -52,7 +51,7 @@
                         <div class="uk-grid uk-grid-small uk-child-width-1-1" uk-grid>
                             <div>
                                 <div class="uk-grid uk-grid-collapse" uk-grid>
-                                    <div class="uk-width-1-2@m" uk-scrollspy-class="uk-animation-slide-left-small">
+                                    <div class="uk-width-1-2@m">
                                         <div class="uk-panel uk-inline-clip">
                                             <canvas width="1080" height="1350"></canvas>
                                             <img data-src="{{ asset('storage/img/clipins.jpg') }} " width="1080"
@@ -65,7 +64,7 @@
     													uk-flex-center
     													uk-flex-middle
     													uk-flex-column
-    													">
+    													" uk-scrollspy="uk-animation-fade">
                                                 <h5 class="
     														uk-h3
     														uk-margin-top
@@ -89,36 +88,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="uk-width-1-2@m" uk-scrollspy-class="uk-animation-slide-right-small">
+                                    <div class="uk-width-1-2@m">
                                         <div class="uk-panel uk-inline-clip">
                                             <canvas width="1080" height="1350"></canvas>
-                                            <img data-src="{{ asset('storage/img/frontal.jpg') }}" width="1080" height="1620" alt=""
-                                                uk-cover uk-img />
+                                            <img data-src="{{ asset('storage/img/frontal.jpg') }}" width="1080"
+                                                height="1620" alt="" uk-cover uk-img />
 
-                                            <div class="
-    													frontals
-    													uk-position-cover
-    													uk-flex
-    													uk-flex-center
-    													uk-flex-middle
-    													uk-flex-column
-    													">
-                                                <h5 class="
-    													uk-h3 uk-margin-remove-bottom uk-text-uppercase uk-text-bold
-    													">
+                                            <div class="frontals uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column" uk-scrollspy="uk-animation-fade">
+                                                <h5 class=" uk-h3 uk-margin-remove-bottom uk-text-uppercase uk-text-bold ">
                                                     Elite
                                                 </h5>
-                                                <h4 class="
-    															frontal-caption
-    															uk-text-uppercase
-    															uk-margin-small-top
-    															uk-margin-remove-bottom
-    														">
+                                                <h4 class="frontal-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom ">
                                                     Frontals
                                                 </h4>
-                                                <a href="#" class="
-    															uk-button uk-button-primary uk-button-large uk-margin-top
-    														">View Collection</a>
+                                                <a href="#"
+                                                    class=" uk-button uk-button-primary uk-button-large uk-margin-top ">
+                                                    View Collection
+                                                    </a>
                                             </div>
                                         </div>
                                     </div>
@@ -126,21 +112,14 @@
                             </div>
 
                             <div>
-                                <div class="uk-panel uk-inline-clip"
-                                    uk-scrollspy-class="uk-animation-slide-bottom-small">
-                                    <img data-src="{{ asset('storage/img/lace.jpg') }}" width="1375" height="1080"
-                                        alt="" uk-img />
-                                    <div class="
-    												uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column
-    												laces
-    											">
+                                <div class="uk-panel uk-inline-clip">
+                                    <img data-src="{{ asset('storage/img/lace.jpg') }}" width="1375" height="1080" alt="" uk-img />
+                                    <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column laces"   uk-scrollspy="uk-animation-fade"
+                                    >
                                         <h5 class="uk-h3 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">
                                             Elite
                                         </h5>
-                                        <h4 class="
-    													laces-caption
-    													uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom
-    												">
+                                        <h4 class="laces-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom ">
                                             Laces
                                         </h4>
                                         <a href="#" class="uk-button uk-button-primary uk-button-large">View
@@ -157,7 +136,7 @@
         <div class="uk-grid uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1 uk-grid-match" uk-grid
             uk-scrollspy="target: [uk-scrollspy-class]; delay: 200; repeat: false">
             <div>
-                <div class="uk-panel" uk-scrollspy-class="uk-animation-slide-left-small">
+                <div class="uk-panel" >
                     <figure class="uk-inline-clip">
                         <canvas width="960" height="640"></canvas>
                         <img data-src="{{ asset('storage/img/weave.jpg') }} " alt="" width="960" height="640" uk-cover
@@ -179,7 +158,7 @@
                 </div>
             </div>
             <div>
-                <div class="uk-panel" uk-scrollspy-class="uk-animation-slide-right-small">
+                <div class="uk-panel" >
                     <figure class="uk-inline-clip">
                         <canvas width="960" height="640"></canvas>
                         <img data-src="{{ asset('storage/img/ext.jpg') }}" alt="" width="960" height="640" uk-cover
@@ -291,317 +270,21 @@
                             uk-slider="autoplay: 1;">
                             <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
                                 <ul class="uk-slider-items uk-grid uk-grid-small">
+                                    @foreach ($featuredProducts as $product)
                                     <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/1.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Add
-                                                            to Cart</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <x-product-card :product="$product" />
                                     </li>
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default uk-cover-container">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/2.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Select
-                                                            Options</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/3.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Select
-                                                            Options</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/4.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Select
-                                                            Options</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/5.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Add
-                                                            to Cart</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/6.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Add
-                                                            to Cart</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/7.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Select
-                                                            Options</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top uk-cover-container">
-                                                <canvas width="445" height="649"></canvas>
-                                                <img data-src="{{ asset('storage/img/8.jpg') }}" alt="" width="445"
-                                                    height="649" uk-cover uk-img />
-                                            </div>
-                                            <div class="uk-card-body uk-padding-small">
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#" class="uk-link-toggle">
-                                                            <span class="uk-link-heading">Wigs</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p class="uk-text-success">In Stock</p>
-                                                    </div>
-                                                </div>
-                                                <div class="uk-width-1-1 uk-text-left uk-margin">
-                                                    <h3 class="uk-card-title">Synthetic Hair Wig</h3>
-                                                </div>
-                                                <div class="uk-grid grid-collapse" uk-grid>
-                                                    <div class="uk-width-auto">
-                                                        <a href="#"
-                                                            class="uk-button uk-button-primary uk-button-small">Select
-                                                            Options</a>
-                                                    </div>
-                                                    <div class="uk-width-expand uk-text-right">
-                                                        <p>
-                                                            <span class="uk-icon" uk-icon="icon: tag"></span>
-                                                            <span class="uk-text-muted">Ksh</span>
-                                                            <span class="uk-text-primary">7,864</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @endforeach
+
                                 </ul>
                                 <div
                                     class="uk-visible@m uk-hidden-hover uk-hidden-touch uk-slidenav-container uk-position-top-right">
                                     <a class="uk-slidenav-large uk-icon uk-slidenav-previous uk-slidenav" href="#"
-                                        uk-slidenav-previous="" uk-slider-item="previous"></a>
+                                        uk-slidenav-previous="" uk-slider-item="previous">
+                                    </a>
                                     <a class="uk-slidenav-large uk-icon uk-slidenav-next uk-slidenav" href="#"
-                                        uk-slidenav-next="" uk-slider-item="next"></a>
+                                        uk-slidenav-next="" uk-slider-item="next">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -620,9 +303,9 @@
                 <p class="uk-text-lead">Facilitate your choice of perfect hair in 3 simple steps.</p>
             </div>
             <div class="uk-margin-large uk-text-center">
-                <article class="
-    							uk-child-width-1-1 uk-child-width-1-3@m uk-grid-large uk-grid-divider uk-grid-match uk-grid
-    						" uk-grid uk-scrollspy-class>
+                <article
+                    class="uk-child-width-1-1 uk-child-width-1-3@m uk-grid-large uk-grid-divider uk-grid-match uk-grid"
+                    uk-grid uk-scrollspy-class>
                     <div>
                         <div class="uk-margin-auto uk-width-medium uk-panel">
                             <div class="uk-icon uk-text-primary" uk-icon="icon: product-search; ratio: 3"></div>
