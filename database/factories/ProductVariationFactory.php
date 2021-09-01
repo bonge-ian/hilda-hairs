@@ -27,11 +27,8 @@ class ProductVariationFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name(),
-            'product_id' => Product::get('id')->random(),
             'price' => $this->faker->numberBetween($min = 100_000, $max = 10000000),
             'order' => $this->faker->randomDigitNotNull(),
-            'size_id' => Size::get('id')->random(),
-            'color_id' => Color::get('id')->random()
         ];
     }
 }

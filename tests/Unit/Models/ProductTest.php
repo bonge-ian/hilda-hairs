@@ -6,8 +6,6 @@ use App\Cart\Money;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductVariation;
-use App\Models\Size;
-use Symfony\Component\Process\Process;
 use Tests\TestCase;
 
 class ProductTest extends TestCase
@@ -45,7 +43,7 @@ class ProductTest extends TestCase
         ]);
 
         $product->variations()->save(
-            ProductVariation::factory()->create()
+            ProductVariation::factory()->create(['product_id' => $product->id])
         );
 
         $this->assertInstanceOf(ProductVariation::class, $product->variations->first());
