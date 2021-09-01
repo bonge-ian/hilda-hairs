@@ -41,7 +41,7 @@
                                 <h4 class="wig-caption uk-text-uppercase uk-margin-medium-top uk-margin-remove-bottom">
                                     Wigs
                                 </h4>
-                                <a href="#" class="uk-button uk-button-large uk-button-primary uk-margin-medium-top">
+                                <a href="{{ route('category.show', 'wigs') }}" class="uk-button uk-button-large uk-button-primary uk-margin-medium-top">
                                     View Collection
                                 </a>
                             </div>
@@ -82,7 +82,7 @@
     														">
                                                     Clip ins
                                                 </h4>
-                                                <a href="#"
+                                                <a href="{{ route('category.show', 'clipins') }}"
                                                     class="uk-button uk-button-primary uk-button-large uk-margin">View
                                                     Collection</a>
                                             </div>
@@ -96,12 +96,12 @@
 
                                             <div class="frontals uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column" uk-scrollspy="uk-animation-fade">
                                                 <h5 class=" uk-h3 uk-margin-remove-bottom uk-text-uppercase uk-text-bold ">
-                                                    Elite
+                                                    Classy
                                                 </h5>
                                                 <h4 class="frontal-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom ">
                                                     Frontals
                                                 </h4>
-                                                <a href="#"
+                                                <a href="{{ route('category.show', 'frontals') }}"
                                                     class=" uk-button uk-button-primary uk-button-large uk-margin-top ">
                                                     View Collection
                                                     </a>
@@ -117,12 +117,12 @@
                                     <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column laces"   uk-scrollspy="uk-animation-fade"
                                     >
                                         <h5 class="uk-h3 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">
-                                            Elite
+                                            Elegant
                                         </h5>
                                         <h4 class="laces-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom ">
                                             Laces
                                         </h4>
-                                        <a href="#" class="uk-button uk-button-primary uk-button-large">View
+                                        <a href="{{ route('category.show', 'laces') }}" class="uk-button uk-button-primary uk-button-large">View
                                             Collection</a>
                                     </div>
                                 </div>
@@ -145,13 +145,13 @@
                         <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle weaves">
                             <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold"
                                 uk-scrollspy-class="uk-animation-slide-left-small">
-                                Elite
+                                Dainty
                             </h5>
                             <h4 class="weave-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom"
                                 uk-scrollspy-class="uk-animation-slide-left-small">
                                 Weaves
                             </h4>
-                            <a href="#" class="uk-button uk-button-secondary uk-button-large uk-margin"
+                            <a href="{{ route('category.show', 'weaves') }}" class="uk-button uk-button-secondary uk-button-large uk-margin"
                                 uk-scrollspy-class="uk-animation-slide-left-small">View Collection</a>
                         </div>
                     </figure>
@@ -164,21 +164,16 @@
                         <img data-src="{{ asset('storage/img/ext.jpg') }}" alt="" width="960" height="640" uk-cover
                             uk-img />
 
-                        <div class="
-    									uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle
-    									extensions
-    								">
+                        <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle extensions ">
                             <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold"
                                 uk-scrollspy-class="uk-animation-slide-right-small">
-                                Elite
+                                Deluxe
                             </h5>
-                            <h4 class="
-    										extension-caption
-    										uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom
-    									" uk-scrollspy-class="uk-animation-slide-right-small">
+                            <h4 class="extension-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom "
+                                uk-scrollspy-class="uk-animation-slide-right-small">
                                 Extensions
                             </h4>
-                            <a href="#" class="uk-button uk-button-secondary uk-button-large uk-margin"
+                            <a href="{{ route('category.show', 'hair-extensions') }}" class="uk-button uk-button-secondary uk-button-large uk-margin"
                                 uk-scrollspy-class="uk-animation-slide-right-small">View Collection</a>
                         </div>
                     </figure>
@@ -271,9 +266,9 @@
                             <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
                                 <ul class="uk-slider-items uk-grid uk-grid-small">
                                     @foreach ($featuredProducts as $product)
-                                    <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
-                                        <x-product-card :product="$product" />
-                                    </li>
+                                        <li class="uk-width-5-6 uk-width-1-2@s uk-width-1-3@m">
+                                            <x-product-card :product="$product" />
+                                        </li>
                                     @endforeach
 
                                 </ul>
