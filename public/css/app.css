@@ -6606,7 +6606,7 @@ ul.uk-nav-sub {
   /* 1 */
   flex-wrap: wrap;
   /* 2 */
-  margin-left: 0;
+  margin-left: -0.625rem;
   /* 3 */
   padding: 0;
   list-style: none;
@@ -6621,7 +6621,7 @@ ul.uk-nav-sub {
   /* 1 */
   flex: none;
   /* 2 */
-  padding-left: 0;
+  padding-left: 0.625rem;
   /* 3 */
   position: relative;
 }
@@ -6638,7 +6638,13 @@ ul.uk-nav-sub {
   /* 2 */
   padding: 5px 10px;
   color: #999;
-  transition: color 0.1s ease-in-out;
+  padding: 0.8125rem 0.9375rem;
+  background: #1b1b1b;
+  line-height: 0.8125rem;
+  text-align: center;
+  border-radius: 0.1875rem;
+  transition: 0.1s ease-in-out;
+  transition-property: color, background-color, border-color, box-shadow;
 }
 
 /* Hover + Focus */
@@ -6646,11 +6652,15 @@ ul.uk-nav-sub {
 .uk-pagination > * > :focus {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  background-color: #dcad61;
+  color: #181818;
 }
 
 /* Active */
 .uk-pagination > .uk-active > * {
   color: rgba(255, 255, 255, 0.8);
+  background-color: #dcad61;
+  color: #181818;
 }
 
 /* Disabled */
@@ -7003,7 +7013,7 @@ ul.uk-nav-sub {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(19, 19, 19, 0.4);
+  background: rgba(255, 255, 255, 0.4);
   transition: background-color 0.1s ease-in-out;
 }
 
@@ -10624,6 +10634,58 @@ iframe.uk-cover {
   padding-right: 0 !important;
 }
 
+.uk-padding-small-top {
+  padding-top: 15px;
+}
+
+.uk-padding-small-bottom {
+  padding-bottom: 15px;
+}
+
+.uk-padding-small-right {
+  padding-right: 15px;
+}
+
+.uk-padding-small-left {
+  padding-left: 15px;
+}
+
+.uk-padding-small-vertical {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.uk-padding-small-horizontal {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.uk-padding-medium-top {
+  padding-top: 40px;
+}
+
+.uk-padding-medium-bottom {
+  padding-bottom: 40px;
+}
+
+.uk-padding-medium-right {
+  padding-right: 40px;
+}
+
+.uk-padding-medium-left {
+  padding-left: 40px;
+}
+
+.uk-padding-medium-vertical {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.uk-padding-medium-horizontal {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 /* ========================================================================
    Component: Position
  ========================================================================== */
@@ -12522,6 +12584,7 @@ img[data-src][src*="data:image"] {
 .hero .overlay {
   -webkit-backdrop-filter: blur(5px) contrast(0.8);
           backdrop-filter: blur(5px) contrast(0.8);
+  filter: blur(5px);
   background-color: rgba(238, 212, 155, 0.6);
 }
 
@@ -12617,4 +12680,8 @@ img[data-src][src*="data:image"] {
   .extensions .extension-caption {
     font-size: 3.75rem;
   }
+}
+
+.product-info .price {
+  letter-spacing: 0.09375rem;
 }

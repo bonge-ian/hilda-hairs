@@ -1,0 +1,51 @@
+@mixin hook-padding-misc() {
+    .uk-padding-small-top {
+        padding-top: $global-small-gutter;
+    }
+    .uk-padding-small-bottom {
+        padding-bottom: $global-small-gutter;
+    }
+
+    .uk-padding-small-right {
+        padding-right: $global-small-gutter;
+    }
+
+    .uk-padding-small-left {
+        padding-left: $global-small-gutter;
+    }
+
+    .uk-padding-small-vertical {
+        padding-top: $global-small-gutter;
+        padding-bottom: $global-small-gutter;
+    }
+
+    .uk-padding-small-horizontal {
+        padding-left: $global-small-gutter;
+        padding-right: $global-small-gutter;
+    }
+
+    .uk-padding-medium-top {
+        padding-top: $global-medium-gutter;
+    }
+    .uk-padding-medium-bottom {
+        padding-bottom: $global-medium-gutter;
+    }
+
+    .uk-padding-medium-right {
+        padding-right: $global-medium-gutter;
+    }
+
+    .uk-padding-medium-left {
+        padding-left: $global-medium-gutter;
+    }
+
+    .uk-padding-medium-vertical {
+        padding-top: $global-medium-gutter;
+        padding-bottom: $global-medium-gutter;
+    }
+
+    .uk-padding-medium-horizontal {
+        padding-left: $global-medium-gutter;
+        padding-right: $global-medium-gutter;
+    }
+}

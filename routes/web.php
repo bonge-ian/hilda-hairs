@@ -1,7 +1,11 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PagesController;
+use App\Http\Livewire\ProductListings;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('pages.index');
-});
+Route::get('/', [PagesController::class, 'index']);
 
 Route::view('dashboard', 'dashboard')
 	->name('dashboard')
@@ -30,3 +32,10 @@ Route::prefix('categories')->name('category.')->group(function () {
 	Route::get('/', [CategoryController::class, 'index'])->name('index');
 	Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('show');
 });
+
+Route::prefix('products')->name('product.')->group(function () {
+	// Route::get('/', [CategoryController::class, 'index'])->name('index');
+	Route::get('/{product:slug}', [ProductController::class, 'show'])->name('show');
+});
+
+Route::get('products', ProductListings::class);

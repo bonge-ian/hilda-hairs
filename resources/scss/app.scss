@@ -9,7 +9,10 @@
 @import 'abstracts/mixins/utility-mixin';
 @import 'abstracts/mixins/button-mixin';
 @import 'abstracts/mixins/icon-mixin';
+@import 'abstracts/mixins/padding-mixin';
+@import 'abstracts/mixins/pagination-mixin';
 @import 'abstracts/mixins/slidenav-mixin';
+
 
 /** 4. Import UIkit */
 @import 'vendors/uikit';
@@ -26,3 +29,4 @@
 
 // pages
 @import 'pages/index.scss';
+@import 'pages/product.scss';

@@ -26,6 +26,7 @@
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}" />
+	<livewire:styles />
 </head>
 
 <body>
@@ -48,6 +49,36 @@
 
 	<!-- App -->
 	<script src="{{ mix('js/app.js') }}"></script>
+	<livewire:scripts/>
+	<script>
+		document.addEventListener("livewire:load", () => {
+			window.livewire.hook("element.updated", (el, component) => {
+				if (el.hasAttribute("uk-icon")) {
+					UIkit.icon(el, {
+						icon: el.getAttribute("uk-icon"),
+					});
+				}
+
+				if (el.hasAttribute("uk-pagination-previous")) {
+					UIkit.icon(el, {
+						icon: el.getAttribute("uk-pagination-previous"),
+					});
+				}
+
+				if (el.hasAttribute("uk-pagination-next")) {
+					UIkit.icon(el, {
+						icon: el.getAttribute("uk-pagination-next"),
+					});
+				}
+
+				if (el.hasAttribute("uk-img")) {
+					UIkit.img(el, {
+						dataSrc: el.getAttribute("data-src"),
+					});
+				}
+			});
+		});
+	</script>
 </body>
 
 </html>

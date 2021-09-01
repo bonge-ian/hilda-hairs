@@ -12,9 +12,9 @@
                     <div>
                         <div class="uk-panel uk-text-center">
                             <a href="{{ route('category.show', $parentCategory->slug) }}" class="uk-cover-container">
-                                <canvas width="484" height="272"></canvas>
+                                <canvas width="640" height="480"></canvas>
                                 <img data-src="{{ asset('storage/' . $parentCategory->cover_image_url)}}"
-                                    alt="{{ $parentCategory->name }} Cover Image" width="484" height="272" uk-img uk-cover>
+                                    alt="{{ $parentCategory->name }} Cover Image" width="640" height="480" uk-img uk-cover>
                             </a>
                             <h2 class="uk-margin-top">
                                 <a href="{{ route('category.show', $parentCategory->slug) }}" class="uk-link-heading">

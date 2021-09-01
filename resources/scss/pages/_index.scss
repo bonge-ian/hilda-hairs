@@ -1,6 +1,7 @@
 // hero
 .hero .overlay {
     backdrop-filter: blur(5px) contrast(0.8);
+    filter: blur(5px);
     background-color: rgba(238, 212, 155, 0.6);
 }
 
