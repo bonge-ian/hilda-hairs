@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
-use App\Helpers\Breadcrumbs\Breadcrumbs;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use App\Helpers\Breadcrumbs\Breadcrumbs;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,5 +34,22 @@ class AppServiceProvider extends ServiceProvider
             'breadcrumbs',
             fn () => new Breadcrumbs($this)
         );
+
+        Collection::macro('paginate', function ($perPage = 15, $total = null, $page = null, $pageName = 'page') {
+            $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
+
+            return new LengthAwarePaginator(
+                $this->forPage($page, $perPage),
+                $total ?: $this->count(),
+                $perPage,
+                $page,
+                [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                    'pageName' => $pageName,
+                ]
+            );
+        });
+
+        Paginator::defaultView('vendor.pagination.default');
     }
 }
