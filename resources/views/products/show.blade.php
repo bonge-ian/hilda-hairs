@@ -236,14 +236,12 @@
         let priceTag = document.querySelector('.price');
         let originalPrice = priceTag.innerText;
 
-        if (priceTag.innerText != "Out of stock" && priceTag.classList.contains('uk-text-danger')) {
-            priceTag.classList.remove('uk-text-danger');
-        }
-
         window.addEventListener('variation-picked', event => {
             priceTag.innerText = event.detail.price;
             if (event.detail.price == "Out of stock") {
                 priceTag.classList.add('uk-text-danger');
+            } else {
+                priceTag.classList.remove('uk-text-danger');
             }
         });
 
