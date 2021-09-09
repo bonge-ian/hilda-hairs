@@ -1903,7 +1903,7 @@ select.uk-form-width-xsmall {
 
 /* 4 */
 .uk-select:not([multiple]):not([size]) option {
-  color: #444;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /*
@@ -3030,28 +3030,28 @@ select.uk-form-width-xsmall {
  * Default
  */
 .uk-tile-default {
-  background: #131313;
+  background-color: #131313;
 }
 
 /*
  * Muted
  */
 .uk-tile-muted {
-  background: #1b1b1b;
+  background-color: #1b1b1b;
 }
 
 /*
  * Primary
  */
 .uk-tile-primary {
-  background: #dcad61;
+  background-color: #dcad61;
 }
 
 /*
  * Secondary
  */
 .uk-tile-secondary {
-  background: #181818;
+  background-color: #181818;
 }
 
 /* ========================================================================
@@ -6142,7 +6142,7 @@ ul.uk-nav-sub {
  */
 .uk-navbar-nav > li:hover > a,
 .uk-navbar-nav > li > a:focus,
-.uk-navbar-nav > li > a.uk-open {
+.uk-navbar-nav > li > a[aria-expanded=true] {
   color: rgba(255, 255, 255, 0.8);
   outline: none;
 }
