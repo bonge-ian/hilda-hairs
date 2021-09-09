@@ -1,21 +1,21 @@
 /** 1. Your custom variables and variable overwrites. */
-@import 'abstracts/variables';
+@import "abstracts/variables";
 
 /** 2. Import default variables and available mixins. */
-@import 'node_modules/uikit/src/scss/variables-theme.scss';
-@import 'node_modules/uikit/src/scss/mixins-theme.scss';
+@import "node_modules/uikit/src/scss/variables-theme.scss";
+@import "node_modules/uikit/src/scss/mixins-theme.scss";
 
 /** 3. Your custom mixin overwrites. */
-@import 'abstracts/mixins/utility-mixin';
-@import 'abstracts/mixins/button-mixin';
-@import 'abstracts/mixins/icon-mixin';
-@import 'abstracts/mixins/padding-mixin';
-@import 'abstracts/mixins/pagination-mixin';
-@import 'abstracts/mixins/slidenav-mixin';
-
+@import "abstracts/mixins/utility-mixin";
+@import "abstracts/mixins/button-mixin";
+@import "abstracts/mixins/icon-mixin";
+@import "abstracts/mixins/notification-mixin";
+@import "abstracts/mixins/padding-mixin";
+@import "abstracts/mixins/pagination-mixin";
+@import "abstracts/mixins/slidenav-mixin";
 
 /** 4. Import UIkit */
-@import 'vendors/uikit';
+@import "vendors/uikit";
 
 /** 5. Site Styles */
 // utilities
@@ -28,5 +28,5 @@
 // components
 
 // pages
-@import 'pages/index.scss';
-@import 'pages/product.scss';
+@import "pages/index.scss";
+@import "pages/product.scss";

@@ -5086,6 +5086,8 @@ select.uk-form-width-xsmall {
   font-size: 20px;
   line-height: 1.4;
   cursor: pointer;
+  border-radius: calc(1.2rem);
+  background-image: linear-gradient(to right bottom, #22e1ff 0%, #1d8fe1 48%, #625eb1 100%);
 }
 
 * + .uk-notification-message {
@@ -5100,6 +5102,7 @@ select.uk-form-width-xsmall {
   position: absolute;
   top: 20px;
   right: 15px;
+  color: #131313;
 }
 
 .uk-notification-message:hover .uk-notification-close {
@@ -5113,6 +5116,8 @@ select.uk-form-width-xsmall {
  */
 .uk-notification-message-primary {
   color: #dcad61;
+  background-image: linear-gradient(to right bottom, #fa709a 0%, #fee140 100%);
+  color: #131313;
 }
 
 /*
@@ -5120,6 +5125,8 @@ select.uk-form-width-xsmall {
  */
 .uk-notification-message-success {
   color: #32d296;
+  background-image: linear-gradient(to right bottom, #9be15d 0%, #00e3ae 100%);
+  color: #131313;
 }
 
 /*
@@ -5127,6 +5134,8 @@ select.uk-form-width-xsmall {
  */
 .uk-notification-message-warning {
   color: #faa05a;
+  background-image: linear-gradient(to right bottom, #f6d365 0%, #fda085 100%);
+  color: #131313;
 }
 
 /*
@@ -5134,6 +5143,8 @@ select.uk-form-width-xsmall {
  */
 .uk-notification-message-danger {
   color: #f0506e;
+  color: #131313;
+  background-image: linear-gradient(to right bottom, #ff0844 0%, #ffb199 100%);
 }
 
 /* ========================================================================
@@ -12581,10 +12592,22 @@ img[data-src][src*="data:image"] {
   background: rgba(0, 0, 0, 0.1);
 }
 
+.liked {
+  transition-property: color, fill;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-delay: 0.4s;
+  transition-duration: 0.6s;
+}
+.liked svg {
+  color: transparent;
+}
+.liked path {
+  fill: #dcad61;
+}
+
 .hero .overlay {
   -webkit-backdrop-filter: blur(5px) contrast(0.8);
           backdrop-filter: blur(5px) contrast(0.8);
-  filter: blur(5px);
   background-color: rgba(238, 212, 155, 0.6);
 }
 

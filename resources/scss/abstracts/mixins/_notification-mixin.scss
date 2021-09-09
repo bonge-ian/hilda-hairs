@@ -1,0 +1,50 @@
+@mixin hook-notification-message {
+    border-radius: calc(1.2rem);
+    background-image: linear-gradient(
+        to right bottom,
+        #22e1ff 0%,
+        #1d8fe1 48%,
+        #625eb1 100%
+    );
+}
+
+@mixin hook-notification-close {
+    color: $global-background;
+}
+
+@mixin hook-notification-message-danger {
+    color: $global-background;
+    background-image: linear-gradient(
+        to right bottom,
+        #ff0844 0%,
+        #ffb199 100%
+    );
+}
+
+@mixin hook-notification-message-primary {
+    background-image: linear-gradient(
+        to right bottom,
+        #fa709a 0%,
+        #fee140 100%
+    );
+    color: $global-background;
+}
+
+@mixin hook-notification-message-success {
+    background-image: linear-gradient(
+        to right bottom,
+        #9be15d 0%,
+        #00e3ae 100%
+    );
+    color: $global-background;
+}
+
+@mixin hook-notification-message-warning {
+    background-image: linear-gradient(
+        to right bottom,
+        #f6d365 0%,
+        #fda085 100%
+    );
+    color: $global-background;
+}
+ 

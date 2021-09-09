@@ -1,4 +1,18 @@
 // image placeholder
-img[data-src][src*='data:image'] {
-	background: rgba(0, 0, 0, 0.1);
+img[data-src][src*="data:image"] {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.liked {
+    svg {
+        color: transparent;
+    }
+
+    path {
+        fill: $global-primary-background;
+    }
+    transition-property: color, fill;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: 0.4s;
+    transition-duration: 0.6s;
 }

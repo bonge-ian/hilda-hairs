@@ -93,7 +93,7 @@
                             </div>
 
                             @if ($variations->count())
-                                <livewire:variations :variations="$variations" />
+                            <livewire:variations :variations="$variations" />
                             @endif
 
                             <div class="uk-panel uk-margin-medium uk-width-xlarge uk-margin-auto@m">
@@ -118,11 +118,12 @@
                                                 <span class="uk-icon" uk-icon="icon: bag"></span>
                                             </button>
                                         </div>
+                                        @auth
                                         <div class="uk-width-auto">
-                                            <button class="uk-button uk-button-default uk-width-1-1">
-                                                <span class="uk-icon" uk-icon="icon: heart"></span>
-                                            </button>
+                                            <livewire:wishlist :product="$product" :ratio="1.6"
+                                                :wire:key="$product->id" />
                                         </div>
+                                        @endauth
                                     </div>
                                 </div>
                             </div>
@@ -234,13 +235,22 @@
     <script>
         let priceTag = document.querySelector('.price');
         let originalPrice = priceTag.innerText;
+
+        if (priceTag.innerText != "Out of stock" && priceTag.classList.contains('uk-text-danger')) {
+            priceTag.classList.remove('uk-text-danger');
+        }
+
         window.addEventListener('variation-picked', event => {
             priceTag.innerText = event.detail.price;
+            if (event.detail.price == "Out of stock") {
+                priceTag.classList.add('uk-text-danger');
+            }
         });
 
         window.addEventListener('reset-price', event => {
             if (priceTag.innerText !== originalPrice) {
                 priceTag.innerText = originalPrice;
+                priceTag.classList.remove('uk-text-danger');
             }
         });
     </script>
