@@ -77,8 +77,12 @@
 					});
 				}
 			});
+
+            var likeIcon = document.querySelector('.like');
+
 		});
 	</script>
+    @stack('scripts')
 </body>
 
 </html>
