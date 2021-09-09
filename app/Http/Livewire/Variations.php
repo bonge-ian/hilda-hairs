@@ -43,12 +43,15 @@ class Variations extends Component
         if ($value == false) {
             $this->dispatchBrowserEvent('reset-price');
         } else {
-            $price = $this->groupedVariations()->get($this->color)->get($value)->pluck('price')->first();
+            if ($this->groupedVariations()->get($this->color)->get($value)->first()->inStock()) {
+                $price = $this->groupedVariations()->get($this->color)->get($value)->pluck('price')->first()->formatted();
+            } else {
+                $price = "Out of stock";
+            }
 
-            $this->dispatchBrowserEvent('variation-picked', ['price' => $price->formatted()]);
+            $this->dispatchBrowserEvent('variation-picked', ['price' => $price]);
         }
     }
-
 
     private function groupedVariations()
     {

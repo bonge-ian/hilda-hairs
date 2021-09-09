@@ -34,14 +34,42 @@ class Product extends Model
 
     protected $with = ['category', 'variations'];
 
-    public function category(): BelongsTo
+    protected $appends = ['in_stock'];
 
+    public function getInStockAttribute()
+    {
+        return $this->inStock();
+    }
+
+    public function inStock()
+    {
+        return $this->stockCount() > 0;
+    }
+
+    public function stockCount()
+    {
+        return $this->variations->sum(
+            fn ($variation) => $variation->stockCount()
+        );
+    }
+
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function variations() : HasMany
+    public function variations(): HasMany
     {
         return $this->hasMany(ProductVariation::class)->orderBy('order', 'asc');
+    }
+
+    public function likes() : HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function likedBy(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
     }
 }
