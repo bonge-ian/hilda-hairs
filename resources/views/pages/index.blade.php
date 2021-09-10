@@ -34,7 +34,7 @@
                 <div class="uk-grid uk-grid-collapse uk-child-width-1-2@m uk-child-width-1-1 uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-panel uk-tile uk-background-cover uk-background-center-center wigs uk-flex uk-flex-center uk-flex-middle"
-                            data-src="{{ asset('storage/img/wig.jpg') }} " uk-img>
+                            data-src="{{ asset('storage/img/wig.jpg') }} " uk-img uk-scrollspy="uk-animation-fade">
                             <div class="uk-flex uk-flex-center uk-flex-middle uk-flex-column"
                                 uk-scrollspy="uk-animation-fade">
                                 <h5 class="uk-h2 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">Exquisite</h5>
@@ -52,7 +52,7 @@
                             <div>
                                 <div class="uk-grid uk-grid-collapse" uk-grid>
                                     <div class="uk-width-1-2@m">
-                                        <div class="uk-panel uk-inline-clip">
+                                        <div class="uk-panel uk-inline-clip" uk-scrollspy="uk-animation-fade">
                                             <canvas width="1080" height="1350"></canvas>
                                             <img data-src="{{ asset('storage/img/clipins.jpg') }} " width="1080"
                                                 height="1350" alt="" uk-cover uk-img />
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="uk-width-1-2@m">
-                                        <div class="uk-panel uk-inline-clip">
+                                        <div class="uk-panel uk-inline-clip" uk-scrollspy="uk-animation-fade">
                                             <canvas width="1080" height="1350"></canvas>
                                             <img data-src="{{ asset('storage/img/frontal.jpg') }}" width="1080"
                                                 height="1620" alt="" uk-cover uk-img />
@@ -112,7 +112,7 @@
                             </div>
 
                             <div>
-                                <div class="uk-panel uk-inline-clip">
+                                <div class="uk-panel uk-inline-clip" uk-scrollspy="uk-animation-fade">
                                     <img data-src="{{ asset('storage/img/lace.jpg') }}" width="1375" height="1080" alt="" uk-img />
                                     <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column laces"   uk-scrollspy="uk-animation-fade"
                                     >
@@ -137,44 +137,37 @@
             uk-scrollspy="target: [uk-scrollspy-class]; delay: 200; repeat: false">
             <div>
                 <div class="uk-panel" >
-                    <figure class="uk-inline-clip">
+                    <figure class="uk-inline-clip" uk-scrollspy="uk-animation-fade">
                         <canvas width="960" height="640"></canvas>
-                        <img data-src="{{ asset('storage/img/weave.jpg') }} " alt="" width="960" height="640" uk-cover
-                            uk-img />
+                        <img data-src="{{ asset('storage/img/weave.jpg') }} " alt="" width="960" height="640" uk-cover uk-img />
 
-                        <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle weaves">
-                            <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold"
-                                uk-scrollspy-class="uk-animation-slide-left-small">
+                        <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle weaves" uk-scrollspy="uk-animation-fade">
+                            <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold">
                                 Dainty
                             </h5>
-                            <h4 class="weave-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom"
-                                uk-scrollspy-class="uk-animation-slide-left-small">
+                            <h4 class="weave-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom">
                                 Weaves
                             </h4>
-                            <a href="{{ route('category.show', 'weaves') }}" class="uk-button uk-button-secondary uk-button-large uk-margin"
-                                uk-scrollspy-class="uk-animation-slide-left-small">View Collection</a>
+                            <a href="{{ route('category.show', 'weaves') }}" class="uk-button uk-button-secondary uk-button-large uk-margin">View Collection</a>
                         </div>
                     </figure>
                 </div>
             </div>
             <div>
                 <div class="uk-panel" >
-                    <figure class="uk-inline-clip">
+                    <figure class="uk-inline-clip" uk-scrollspy="uk-animation-fade">
                         <canvas width="960" height="640"></canvas>
                         <img data-src="{{ asset('storage/img/ext.jpg') }}" alt="" width="960" height="640" uk-cover
                             uk-img />
 
                         <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle extensions ">
-                            <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold"
-                                uk-scrollspy-class="uk-animation-slide-right-small">
+                            <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold">
                                 Deluxe
                             </h5>
-                            <h4 class="extension-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom "
-                                uk-scrollspy-class="uk-animation-slide-right-small">
+                            <h4 class="extension-caption uk-text-uppercase uk-margin-small-top uk-margin-remove-bottom ">
                                 Extensions
                             </h4>
-                            <a href="{{ route('category.show', 'hair-extensions') }}" class="uk-button uk-button-secondary uk-button-large uk-margin"
-                                uk-scrollspy-class="uk-animation-slide-right-small">View Collection</a>
+                            <a href="{{ route('category.show', 'hair-extensions') }}" class="uk-button uk-button-secondary uk-button-large uk-margin">View Collection</a>
                         </div>
                     </figure>
                 </div>
