@@ -62,7 +62,7 @@
                         @else
                         <li>
                             <a href="#">
-                                <span class="uk-icon" uk-icon="icon: user"></span>
+                                <span class="uk-icon" uk-icon="icon: account-circle"></span>
                             </a>
                             <div class="uk-navbar-dropdown uk-width-medium uk-navbar-dropdown-bottom-right">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -73,7 +73,7 @@
 
                                     <li class="{{ request()->routeIs('dashboard') ? 'uk-active' : '' }}">
                                         <a href="{{ route('dashboard') }}">
-                                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
+                                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: dashboard"></span>
                                             Dashboard
                                         </a>
                                     </li>
