@@ -5899,17 +5899,20 @@ ul.uk-nav-sub {
   font-size: 24px;
   line-height: 1.5;
   color: #999;
+  color: #fff !important;
 }
 
 /* Hover + Focus */
 .uk-nav-primary > li > a:hover,
 .uk-nav-primary > li > a:focus {
   color: rgba(255, 255, 255, 0.8);
+  color: #dcad61 !important;
 }
 
 /* Active */
 .uk-nav-primary > li.uk-active > a {
   color: #fff;
+  color: #dcad61 !important;
 }
 
 /*

@@ -1,0 +1,11 @@
+@mixin hook-nav-primary-item {
+    color: $global-emphasis-color !important;
+}
+
+@mixin hook-nav-primary-item-hover {
+    color: $global-primary-background !important;
+}
+
+@mixin hook-nav-primary-item-active {
+    @include hook-nav-primary-item-hover;
+}
