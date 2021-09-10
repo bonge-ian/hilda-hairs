@@ -37,6 +37,6 @@
 		</div>
 	</form>
 
-	<x-slot name="submit_form_id">{{ _('profile-update-info') }}</x-slot>
-	<x-slot name="cta">{{ _('Save') }}</x-slot>
+	<x-slot name="submit_form_id">{{ __('profile-update-info') }}</x-slot>
+	<x-slot name="cta">{{ __('Save') }}</x-slot>
 </x-profile-settings-card>
