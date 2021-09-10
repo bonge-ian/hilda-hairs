@@ -3,31 +3,22 @@
 namespace App\Http\Livewire;
 
 use App\Models\Like;
-use App\Models\User;
 use App\Models\Product;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 class Wishlist extends Component
 {
-    use AuthorizesRequests;
-
     public Product $product;
 
-    protected $ratioIcon = 1;
+    public $ratio = 1;
 
     // protected $listeners = ['$refresh'];
 
     public function mount($ratio)
     {
         // $this->product = $product;
-        $this->ratioIcon = $ratio;
-    }
-
-    public function getRatioProperty()
-    {
-        return $this->ratioIcon;
+        $this->ratio = $ratio;
     }
 
     public function like()

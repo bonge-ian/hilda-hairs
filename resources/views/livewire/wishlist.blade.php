@@ -17,7 +17,7 @@
                 elem.classList.add('liked');
 
                 UIkit.notification({
-                    message: event.detail.message,
+                    message: `<span class='uk-icon uk-margin-small-right' uk-icon='icon: check-circle'></span> ${event.detail.message}`,
                     status: 'primary',
                     pos: 'top-right',
                     timeout: 4000
@@ -31,7 +31,7 @@
                 elem.classList.remove('liked');
 
                 UIkit.notification({
-                    message: event.detail.message,
+                    message: `<span class='uk-icon uk-margin-small-right' uk-icon='icon: check-circle'></span> ${event.detail.message}`,
                     status: 'danger',
                     pos: 'top-right',
                     timeout: 4000
