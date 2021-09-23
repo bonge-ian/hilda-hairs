@@ -16,15 +16,15 @@
             <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-5@m">
                 <ul class="uk-nav uk-nav-default" uk-scrollspy-class>
                     <li class="uk-nav-header">Categories</li>
-                    <li><a href="#">Wigs</a></li>
-                    <li><a href="#">Weaves</a></li>
-                    <li><a href="#">Hair Extensions</a></li>
+                    <li><a href="{{ route('category.show', 'wigs') }}">Wigs</a></li>
+                    <li><a href="{{ route('category.show', 'weaves') }}">Weaves</a></li>
+                    <li><a href="{{ route('category.show', 'hair-extensions') }}">Hair Extensions</a></li>
                 </ul>
             </div>
             <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-5@m">
                 <ul class="uk-nav uk-nav-default" uk-scrollspy-class>
                     <li class="uk-nav-header">Services</li>
-                    <li><a href="#">Inventory</a></li>
+                    <li><a href="{{ route('product.index') }}">Inventory</a></li>
                     <li><a href="#">About us </a></li>
                     <li><a href="#">How it works</a></li>
                     <li><a href="#">FAQ</a></li>
