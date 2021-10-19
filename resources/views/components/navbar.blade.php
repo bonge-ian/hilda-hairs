@@ -1,3 +1,4 @@
+
 <header uk-sticky="sel-target: .uk-navbar-container;animation: uk-animation-slide-top;show-on-up: true">
     <div class="uk-navbar-container">
         <div class="uk-container uk-container-expand">
@@ -23,6 +24,7 @@
                                 </ul>
                             </div>
                         </li>
+                        <li><a href="{{ route('product.index') }}">Shop</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
@@ -34,7 +36,7 @@
                     <ul class="uk-navbar-nav ">
                         <li class="uk-visible@m">
                             <a href="#" class="uk-text-primary">
-                                <span class="uk-icon uk-margin-small-right" uk-icon="icon: mail"></span>
+                                <span class="uk-icon uk-margin-small-right uk-text-lowercase" uk-icon="icon: mail"></span>
                                 info@example.com
                             </a>
                         </li>
@@ -101,7 +103,7 @@
 
                         @endguest
                         <li>
-                            <a href="#" class="uk-icon" uk-icon="icon: bag" uk-tooltip="title: Cart"> </a>
+                          <livewire:shopping-bag />
                         </li>
 
                     </ul>
@@ -140,6 +142,7 @@
                     @endforeach
                 </ul>
             </li>
+            <li><a href="{{ route('product.index') }}">Shop</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
             <li class="uk-nav-divider"></li>
