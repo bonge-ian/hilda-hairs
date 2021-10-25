@@ -27,7 +27,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $name = $this->faker->unique()->name(),
-            'category_id' => (Category::factory()->create())->id,
+            // 'category_id' => (Category::factory()->create())->id,
             'slug' => Str::slug($name),
             'caption' => $this->faker->text(),
             'type' => $this->faker->randomEnum(HairTypeEnum::class),
