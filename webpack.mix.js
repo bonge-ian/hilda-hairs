@@ -16,52 +16,54 @@ const path = require("path");
 const localDomain = "http://hilda.test";
 
 mix
-	// resolve uikit-util path
-	.webpackConfig({
-		resolve: {
-			alias: {
-				"uikit-util": path.resolve(
-					__dirname,
-					"node_modules/uikit/src/js/util/"
-				),
-			},
-		},
-	})
-	// Utilities
-	.sourceMaps()
-	.options({
-		processCssUrls: false,
-	})
+    // resolve uikit-util path
+    .webpackConfig({
+        resolve: {
+            alias: {
+                "uikit-util": path.resolve(
+                    __dirname,
+                    "node_modules/uikit/src/js/util/"
+                ),
+            },
+        },
+    })
+    // Utilities
+    .sourceMaps()
+    .options({
+        processCssUrls: false,
+    })
 
+    // Suppress success messages
+    .disableNotifications()
 
+    // Compile Javascript (ES6)
+    .js("resources/js/app.js", "public/js")
+    .extract()
 
-	// Suppress success messages
-	.disableSuccessNotifications()
+    // Compile Sass
+    .sass("resources/scss/app.scss", "public/css", {
+        sassOptions: {
+            quietDeps: true,
+        },
+    });
 
-	// Compile Javascript (ES6)
-	.js("resources/js/app.js", "public/js")
-	.extract()
+// .copy('resources/img', 'public/img')
+// .copy('resources/fonts', 'public/fonts')
 
-	// Compile Sass
-	.sass("resources/scss/app.scss", "public/css")
-
-	// .copy('resources/img', 'public/img')
-	// .copy('resources/fonts', 'public/fonts')
-
-	// Setup BrowserSync
-	// .browserSync({
-	// 	proxy: localDomain,
-	// 	host: localDomain.replace(/^https?:\/\//, ""),
-	// 	notify: false,
-	// 	open: false,
-	// 	injectChanges: true,
-	// 	// https: {
-	// 	//   key: '/Users/YOUR_COMPUTER/.config/valet/Certificates/YOUR_SITE.test.key',
-	// 	//   cert: '/Users/YOUR_COMPUTER/.config/valet/Certificates/YOUR_SITE.test.crt'
-	// 	// }
-	// });
+// Setup BrowserSync
+// .browserSync({
+// 	proxy: localDomain,
+// 	host: localDomain.replace(/^https?:\/\//, ""),
+// 	notify: false,
+// 	open: false,
+// 	injectChanges: true,
+// 	// https: {
+// 	//   key: '/Users/YOUR_COMPUTER/.config/valet/Certificates/YOUR_SITE.test.key',
+// 	//   cert: '/Users/YOUR_COMPUTER/.config/valet/Certificates/YOUR_SITE.test.crt'
+// 	// }
+// });
 
 // Setup versioning (cache-busting)
 if (mix.inProduction()) {
-	mix.version();
+    mix.version();
 }
