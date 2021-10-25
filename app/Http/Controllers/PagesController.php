@@ -13,7 +13,7 @@ class PagesController extends Controller
         $featuredProducts = Cache::remember(
             'featured-products',
             now()->addHours(12),
-            fn () => Product::inRandomOrder()->take(8)->get()
+            fn () => Product::with('variations.stock')->inRandomOrder()->take(8)->get()
         );
 
         return view('pages.index')->with('featuredProducts', $featuredProducts);
