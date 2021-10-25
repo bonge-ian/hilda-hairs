@@ -103,7 +103,7 @@
 
                         @endguest
                         <li>
-                          <livewire:shopping-bag />
+                          {{-- <livewire:shopping-bag /> --}}
                         </li>
 
                     </ul>

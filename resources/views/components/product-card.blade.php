@@ -9,7 +9,7 @@
         <a href="{{ route('product.show', $product->slug) }}" class="uk-link-reset">
             <canvas width="433" height="650"></canvas>
             <img data-src="{{ asset('storage/' . $product->cover_image_url) }}" alt="{{ $product->name }} Cover Image"
-                class="uk-cover" width="433" height="650" uk-cover uk-img>
+                class="uk-cover " width="433" height="650" uk-cover uk-img>
         </a>
     </div>
     <div class="uk-card-body uk-padding-small">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="uk-width-1-1 uk-panel uk-text-left uk-margin uk-margin-small-top">
-            <h3 class="uk-card-title">
+            <h3 class="uk-card-title uk-text-truncate">
                 <a href="{{ route('product.show', $product->slug) }}" class="uk-link-heading">
                     {{ $product->name }}</a>
             </h3>
@@ -34,16 +34,16 @@
         <div class="uk-width-1-1 uk-panel uk-text-left uk-margin">
             <p class="uk-text-lead uk-text-bold uk-text-small uk-text-primary">
                 <span class="uk-icon uk-margin-small-right" uk-icon="tag"></span>
-                @if ($product->variations->count() >= 2 )
-                <span class="uk-text-meta">Starting from: </span>
-                <span>{{ $product->formatted_price}}</span>
+                @if ($product->variations_count >= 2 )
+                    <span class="uk-text-meta">Starting from: </span>
+                    <span>{{ $product->formatted_price}}</span>
                 @else
-                <span>{{ $product->formatted_price}}</span>
+                    <span>{{ $product->formatted_price}}</span>
                 @endif
             </p>
         </div>
         <div class="uk-width-1-1 uk-panel uk-margin">
-            @if ($product->variations->count() >= 2)
+            @if ($product->variations_count >= 2)
             <a href="{{ route('product.show', $product->slug) }}"
                 class="uk-button uk-button-default uk-border-rounded uk-flex uk-flex-between uk-flex-middle">
                 <span>Select Options</span>

@@ -7,7 +7,9 @@
                     <li class="uk-hidden" aria-hidden="true" aria-label="@lang('pagination.previous')"><a><span uk-pagination-previous></span></a></li>
 
                 @else
-                    <li ><a wire:click="previousPage" wire:loading.attr="disabled" rel="prev" aria-label="@lang('pagination.previous')"><span  uk-pagination-previous></span></a></li>
+                    <li>
+                        <a wire:click="previousPage" wire:loading.attr="disabled" rel="prev" aria-label="@lang('pagination.previous')"><span uk-pagination-previous></span>
+                        </a></li>
 
                 @endif
 

@@ -3,7 +3,7 @@
         <div class="uk-grid uk-grid-collapse uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
             {{-- image slider --}}
             <aside>
-                <div uk-slideshow="animation: pull;ratio: 760:790">
+                <div uk-slideshow="animation: pull;ratio: 760:900">
                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                         <ul class="uk-slideshow-items">
                             <li>
