@@ -1,6 +1,7 @@
-<section class="uk-section uk-section-large uk-padding-small-top">
+<section class="uk-section uk-section-large uk-padding-small-top uk-position-relative" id="product-listings">
     <div class="uk-container uk-container-xlarge">
-        <div class="uk-grid uk-grid-small uk-flex-middle uk-text-middle" uk-grid>
+        {{-- sorting section --}}
+        <aside class="uk-grid uk-grid-small uk-flex-middle uk-text-middle" uk-grid>
             <div class="uk-width-expand">
                 <nav class="uk-panel uk-width-1-1 uk-tile-muted">
                     <ul class="uk-breadcrumb">
@@ -38,8 +39,28 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </aside>
 
         <x-product-grid :products="$products" />
+
+        <div class="uk-position-bottom-right uk-position-small uk-hidden">
+            <a href="#product-listings" class="uk-icon-button" uk-totop uk-scroll></a>
+        </div>
     </div>
 </section>
+
+@push('scripts')
+<script>
+    Livewire.on('pageUpdated', () => {
+        setTimeout(() => {
+            UIkit.scroll(
+                document.querySelector("[uk-totop]")
+            )
+            .scrollTo(
+                document.querySelector('#product-listings')
+            );
+        }, 600);
+    })
+
+</script>
+@endpush
