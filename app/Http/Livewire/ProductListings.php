@@ -25,15 +25,20 @@ class ProductListings extends Component
 
     public function updatedSort($value)
     {
+        $this->products = Product::with(['variations.stock']);
 
         $this->products = (match ($value) {
-            'latest' => Product::latest(),
-            'popular' => Product::inRandomOrder(),
-            'price' => Product::orderBy('price', 'asc'),
-            'price-desc' => Product::orderBy('price', 'desc'),
-            default => Product::ordered()
+            'latest' => $this->products->latest(),
+            'popular' => $this->products->inRandomOrder(),
+            'price' => $this->products->orderBy('price', 'asc'),
+            'price-desc' => $this->products->orderBy('price', 'desc'),
+            default => $this->products->ordered()
         })->paginate(32);
+    }
 
+    public function updatedPaginators($page, $pageName)
+    {
+        $this->emit('pageUpdated');
     }
 
     public function paginationView()
@@ -44,7 +49,7 @@ class ProductListings extends Component
     public function render()
     {
         return view('livewire.product-listings', [
-            'products' => $this->products ?? Product::paginate(32)
+            'products' => $this->products ?? Product::with(['variations.stock'])->paginate(32)
         ]);
     }
 }

@@ -32,9 +32,11 @@ class Product extends Model
         'type' => HairTypeCast::class
     ];
 
-    protected $with = ['category', 'variations'];
+    protected $with = ['category'];
 
-    protected $appends = ['in_stock'];
+    // protected $appends = ['in_stock'];
+
+    protected $withCount = ['variations'];
 
     public function getInStockAttribute()
     {
@@ -48,6 +50,8 @@ class Product extends Model
 
     public function stockCount()
     {
+        $this->loadMissing('variations');
+
         return $this->variations->sum(
             fn ($variation) => $variation->stockCount()
         );
@@ -63,7 +67,7 @@ class Product extends Model
         return $this->hasMany(ProductVariation::class)->orderBy('order', 'asc');
     }
 
-    public function likes() : HasMany
+    public function likes(): HasMany
     {
         return $this->hasMany(Like::class);
     }

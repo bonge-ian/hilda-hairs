@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
 {
     public function show(Product $product)
     {
-        $product = $product->loadMissing(['variations.size', 'variations.color']);
+       $product = $product->loadMissing(['variations.size', 'variations.color', 'variations', 'variations.stock']);
 
         $relatedProducts = Product::where('category_id', $product->category_id);
 
@@ -18,6 +17,7 @@ class ProductController extends Controller
             'related-products',
             now()->addDay(),
             fn () => Product::where('id', '<>', $product->id)
+                ->with(['variations.stock'])
                 ->union($relatedProducts)
                 ->inRandomOrder()
                 ->limit(8)
