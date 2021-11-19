@@ -1,0 +1,31 @@
+$skeleton-comment-title-width: 40%;
+$skeleton-comment-meta-width: $skeleton-comment-title-width / 2;
+$skeleton-background: scale-color($global-muted-color, $alpha: -90%);
+
+.skeleton-body-placeholder,
+.skeleton-title-placeholder,
+.skeleton-image,
+.skeleton-meta-placeholder {
+    background: $skeleton-background;
+}
+.skeleton-body,
+.skeleton-image {
+    height: calc(5rem);
+}
+
+.skeleton-image {
+    width: calc(5rem);
+}
+
+.skeleton-title-placeholder,
+.skeleton-meta-placeholder {
+    height: calc(20px);
+}
+
+.skeleton-title-placeholder {
+    width: $skeleton-comment-title-width;
+}
+
+.skeleton-meta-placeholder {
+    width: $skeleton-comment-meta-width;
+}
