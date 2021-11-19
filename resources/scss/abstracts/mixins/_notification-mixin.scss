@@ -1,5 +1,5 @@
 @mixin hook-notification-message {
-    border-radius: calc(1.2rem);
+    // border-radius: calc(1.2rem);
     background-image: linear-gradient(
         to right bottom,
         #22e1ff 0%,
@@ -47,4 +47,3 @@
     );
     color: $global-background;
 }
- 
