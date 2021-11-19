@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             ColorSeeder::class,
             ProductSeeder::class,
             ProductVariationSeeder::class,
-            StockSeeder::class
+            StockSeeder::class,
+            ReviewSeeder::class
         ]);
     }
 }
