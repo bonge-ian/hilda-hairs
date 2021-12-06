@@ -1,6 +1,8 @@
 <div>
-    <button wire:click="like" @class([ 'uk-width-1-1 uk-text-primary uk-icon like' , 'liked'=>
-        $this->product->likedBy(Auth::user()) ?? false
+    <button type="button" wire:click="like"
+        @class([
+            'uk-width-1-1 uk-text-primary uk-icon like' ,
+            'liked'=> $this->isLiked
         ])
         uk-icon="icon: heart; ratio: {{ $this->ratio }}">
     </button>
@@ -20,7 +22,7 @@
                     message: `<span class='uk-icon uk-margin-small-right' uk-icon='icon: check-circle'></span> ${event.detail.message}`,
                     status: 'primary',
                     pos: 'top-right',
-                    timeout: 4000
+                    timeout: 3000
                 });
             }
         );
@@ -31,10 +33,10 @@
                 elem.classList.remove('liked');
 
                 UIkit.notification({
-                    message: `<span class='uk-icon uk-margin-small-right' uk-icon='icon: check-circle'></span> ${event.detail.message}`,
+                    message: `<span class='uk-icon uk-margin-small-right' uk-icon='icon: warning'></span> ${event.detail.message}`,
                     status: 'danger',
                     pos: 'top-right',
-                    timeout: 4000
+                    timeout: 3000
                 });
             }
         );

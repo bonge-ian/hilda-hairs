@@ -13,12 +13,15 @@ class Wishlist extends Component
 
     public $ratio = 1;
 
-    // protected $listeners = ['$refresh'];
-
-    public function mount($ratio)
+    public function mount(Product $product, mixed $ratio)
     {
-        // $this->product = $product;
+        $this->product = $product;
         $this->ratio = $ratio;
+    }
+
+    public function getIsLikedProperty()
+    {
+        return $this->product->likedBy(Auth::user());
     }
 
     public function like()
@@ -33,7 +36,8 @@ class Wishlist extends Component
 
     protected function likeAction()
     {
-        if ($this->product->likedBy(Auth::user())) {
+        if ($this->isLiked) {
+
             // user already liked so we dislike
             $this->deleteLike();
 
@@ -57,18 +61,19 @@ class Wishlist extends Component
 
     protected function storeLike()
     {
-        $like = $this->product->likes()->make();
-        $like->user()->associate(Auth::user());
-        $like->save();
+        $this->product->likes()->create([
+            'user_id' => Auth::id()
+        ]);
     }
 
     protected function deleteLike()
     {
-        $like = Like::where([
+        $this->product->likes()->create([
+            'user_id' => Auth::id()
+        ]);
+        Like::where([
             'user_id' => Auth::id(),
             'product_id' => $this->product->id
-        ]);
-
-        $like->delete();
+        ])->delete();
     }
 }
