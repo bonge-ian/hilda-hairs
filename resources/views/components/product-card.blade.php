@@ -21,7 +21,9 @@
             </div>
             <div class="uk-width-expand uk-text-right">
                 @if ($product->in_stock)
-                <p class="uk-text-success">In Stock</p>
+                    <p class="uk-text-success">In Stock</p>
+                @else
+                    <p class="uk-text-danger">Out of stock</p>
                 @endif
             </div>
         </div>
@@ -43,17 +45,23 @@
             </p>
         </div>
         <div class="uk-width-1-1 uk-panel uk-margin">
-            @if ($product->variations_count >= 2)
-            <a href="{{ route('product.show', $product->slug) }}"
-                class="uk-button uk-button-default uk-border-rounded uk-flex uk-flex-between uk-flex-middle">
-                <span>Select Options</span>
-                <span class="uk-icon uk-text-right" uk-icon="icon: product-options"></span>
-            </a>
+            @if ($product->in_stock)
+                @if ($product->variations_count >= 2)
+                    <a href="{{ route('product.show', $product->slug) }}"
+                        class="uk-button uk-button-default uk-border-rounded uk-flex uk-flex-between uk-flex-middle">
+                        <span>Select Options</span>
+                        <span class="uk-icon uk-text-right" uk-icon="icon: product-options"></span>
+                    </a>
+                @else
+                    <livewire:quick-add :wire:key="'quick-add'.$product->id" :variation="$product->variations->first()"
+                    :productName="$product->name" :productImageUrl="$product->cover_image_url" />
+                @endif
             @else
-            <a href="#" class="uk-button uk-button-default uk-border-rounded uk-flex uk-flex-between uk-flex-middle">
-                <span>Add to cart</span>
-                <span class="uk-icon uk-text-right" uk-icon="icon: bag"></span>
-            </a>
+                <button type="button" disabled
+                    class="uk-width-1-1 uk-button uk-button-default uk-border-rounded uk-flex uk-flex-between uk-flex-middle">
+                    <span>Out of stock</span>
+                    <span class="uk-icon uk-text-right" uk-icon="icon: ban"></span>
+                </button>
             @endif
         </div>
     </div>
