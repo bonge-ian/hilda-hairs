@@ -72,8 +72,13 @@ class Product extends Model
         return $this->hasMany(Like::class);
     }
 
-    public function likedBy(User $user)
+    public function likedBy(User $user) : bool
     {
         return $this->likes->contains('user_id', $user->id);
+    }
+
+    public function reviews() : HasMany
+    {
+        return $this->hasMany(Review::class)->latest();
     }
 }
