@@ -81,6 +81,22 @@
             var likeIcon = document.querySelector('.like');
 
 		});
+           window.addEventListener('item-already-stored', event => {
+                UIkit.notification({
+                    message: `<span class='uk-icon uk-margin-small-right' uk-icon='icon: warning'></span> ${event.detail.message}`,
+                    status: 'warning',
+                    pos: 'top-right',
+                    timeout: 3000
+                });
+            })
+            window.addEventListener('item-added-to-cart', event => {
+                UIkit.notification({
+                    message: `<span class='uk-icon uk-margin-small-right' uk-icon='icon: check-circle'></span> ${event.detail.message}`,
+                    status: 'success',
+                    pos: 'top-right',
+                    timeout: 3000
+                });
+            })
 	</script>
     @stack('scripts')
 </body>
