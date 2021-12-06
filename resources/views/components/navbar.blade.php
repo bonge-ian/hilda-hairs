@@ -5,7 +5,7 @@
             <nav uk-navbar="align: left; boundary: .uk-navbar-container">
                 <div class="uk-navbar-left">
                     <div class="uk-navbar-item">
-                        <a uk-navbar-toggle-icon= href="#mobile-nav" uk-toggle="target: #mobile-nav"
+                        <a uk-navbar-toggle-icon href="#mobile-nav" uk-toggle="target: #mobile-nav"
                             class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" aria-expanded="false">
                             </a>
                     </div>
@@ -103,7 +103,7 @@
 
                         @endguest
                         <li>
-                          {{-- <livewire:shopping-bag /> --}}
+                          <livewire:bag />
                         </li>
 
                     </ul>
