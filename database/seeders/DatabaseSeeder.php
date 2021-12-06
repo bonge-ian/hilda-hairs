@@ -13,17 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
         // should be run in this order
         $this->call([
             CategorySeeder::class,
+            ProductSeeder::class,
             SizeSeeder::class,
             ColorSeeder::class,
-            ProductSeeder::class,
             ProductVariationSeeder::class,
             StockSeeder::class,
-            ReviewSeeder::class
+            ReviewSeeder::class,
+            CouponSeeder::class,
         ]);
     }
 }
