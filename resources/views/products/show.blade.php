@@ -93,40 +93,8 @@
                             </div>
 
                             @if ($variations->count())
-                            <livewire:variations :variations="$variations" />
+                            <livewire:variations :variations="$variations" :product="$product" />
                             @endif
-
-                            <div class="uk-panel uk-margin-medium uk-width-xlarge uk-margin-auto@m">
-                                <form action="" class="uk-form-stacked uk-width-medium">
-                                    <div>
-                                        <label class="uk-form-label" for="quantity">Quantity</label>
-                                        <div class="uk-form-controls">
-                                            <input type="number" id="form-stacked-text" class="uk-input" value="1"
-                                                step="1" min="1" max="">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="uk-panel uk-margin-medium uk-width-xlarge uk-margin-auto@m">
-                                <div class="uk-width-large">
-                                    <div class="uk-grid uk-flex-middle uk-grid-small" uk-grid>
-                                        <div class="uk-width-expand">
-                                            <button
-                                                class="uk-button uk-button-primary uk-width-1-1 uk-flex uk-flex-between uk-flex-middle">
-                                                <span>Add to Basket</span>
-                                                <span class="uk-icon" uk-icon="icon: bag"></span>
-                                            </button>
-                                        </div>
-                                        @auth
-                                        <div class="uk-width-auto">
-                                            <livewire:wishlist :product="$product" :ratio="1.6"
-                                                :wire:key="$product->id" />
-                                        </div>
-                                        @endauth
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
@@ -246,10 +214,18 @@
         });
 
         window.addEventListener('reset-price', event => {
+            resetPrice();
+        });
+
+        window.addEventListener('reset-variation', event => {
+            resetPrice();
+        });
+
+        function resetPrice() {
             if (priceTag.innerText !== originalPrice) {
                 priceTag.innerText = originalPrice;
                 priceTag.classList.remove('uk-text-danger');
             }
-        });
+        }
     </script>
 </x-app-layout>
