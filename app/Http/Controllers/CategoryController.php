@@ -15,10 +15,11 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        $relations = $category->loadMissing(['children', 'products', 'childrenProducts']);
+         $category->loadMissing(['children', 'products', 'childrenProducts']);
 
-        $categoryProducts = $relations->products->loadMissing('variations.stock');
-        $childrenProducts = $relations->childrenProducts->flatMap(
+        $categoryProducts = $category->products->loadMissing('variations.stock');
+
+        $childrenProducts = $category->childrenProducts->flatMap(
             fn ($child) => $child->products->flatten()
         );
 
@@ -26,11 +27,8 @@ class CategoryController extends Controller
             'category-products',
             now()->addDays(3),
             fn () => $categoryProducts->merge($childrenProducts)
-        );
+        )->paginate(40);
 
-        return view('category.show')->with([
-            'category' => $category,
-            'products' => $products->paginate(40)
-        ]);
+        return view('category.show', compact(['category', 'products']));
     }
 }

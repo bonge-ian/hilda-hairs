@@ -16,9 +16,9 @@ class StockSeeder extends Seeder
     public function run()
     {
         Stock::factory()
-            ->count(300)
+            ->count(1000)
             ->sequence(
-                fn ($sequence) => ['product_variation_id' => ProductVariation::get('id')->random()]
+                fn ($sequence) => ['product_variation_id' => ProductVariation::distinct()->get('id')->random()]
             )
             ->create();
     }
