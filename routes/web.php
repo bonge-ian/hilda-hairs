@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
+use App\Http\Livewire\CartSummary;
+use App\Http\Livewire\CartView;
 use App\Http\Livewire\ProductListings;
+use App\Http\Livewire\ProductView;
 use App\Models\Product;
 
 /*
@@ -35,5 +38,7 @@ Route::prefix('categories')->name('category.')->group(function () {
 
 Route::prefix('products')->name('product.')->group(function () {
     Route::get('/', ProductListings::class)->name('index');
-	Route::get('/{product:slug}', [ProductController::class, 'show'])->name('show');
+	Route::get('/{product:slug}', ProductView::class)->name('show');
 });
+
+Route::get('/cart', CartSummary::class)->name('cart');
