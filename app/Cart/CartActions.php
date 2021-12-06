@@ -17,8 +17,7 @@ class CartActions
         ?string $color = null,
         mixed $size = null,
         ?int $stock = null
-    )
-    {
+    ) {
         if (self::getDuplicates($productVariation)->isNotEmpty()) {
             throw new CartAlreadyStoredException();
         }
@@ -36,16 +35,28 @@ class CartActions
             'name' => $productName,
             'qty' => $quantity,
             'price' => $productVariation->price->amount() / 100,
+            'weight' => 0.0,
             'options' => [
                 'size' => $size ?? $productVariation->size->name,
                 'color' => $color ?? $productVariation->color->name,
                 'slug' => Str::slug($productName),
                 'cover_image_url' => $coverImage ?? $productVariation->product->cover_image_url,
-                'stock' => $stock
+                'stock' => $stock,
+
             ],
             0
         ])->associate(ProductVariation::class);
+    }
 
+    public static function discount(int $percentage)
+    {
+        Cart::setGlobalDiscount($percentage);
+    }
+
+    public static function removeDiscount()
+    {
+        Cart::setGlobalDiscount(0);
+        // unset(Cart::discount(2));
     }
 
     public static function delete($rowId)
@@ -57,7 +68,6 @@ class CartActions
     {
         return Cart::update($rowId, $quantity);
     }
-
 
     private static function getDuplicates(ProductVariation $productVariation)
     {
