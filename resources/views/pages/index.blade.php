@@ -3,7 +3,7 @@
     <section class="hero uk-section uk-section-default uk-padding-remove-vertical">
         <div class="uk-container uk-container-expand">
             <div class="uk-background-cover uk-background-center-left uk-position-relative"
-                data-src="{{ asset('storage/img/hero.jpg')}}" uk-img
+                data-src="{{ asset('img/hero.jpg')}}" uk-img
                 uk-height-viewport="offset-top: true; minHeight: 600;">
                 <div class="uk-position-cover uk-flex uk-flex-bottom uk-flex-right">
                     <div class="uk-overlay overlay uk-padding-large uk-width-xlarge">
@@ -34,7 +34,7 @@
                 <div class="uk-grid uk-grid-collapse uk-child-width-1-2@m uk-child-width-1-1 uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-panel uk-tile uk-background-cover uk-background-center-center wigs uk-flex uk-flex-center uk-flex-middle"
-                            data-src="{{ asset('storage/img/wig.jpg') }} " uk-img uk-scrollspy="uk-animation-fade">
+                            data-src="{{ asset('img/wig.jpg') }} " uk-img uk-scrollspy="uk-animation-fade">
                             <div class="uk-flex uk-flex-center uk-flex-middle uk-flex-column"
                                 uk-scrollspy="uk-animation-fade">
                                 <h5 class="uk-h2 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">Exquisite</h5>
@@ -54,7 +54,7 @@
                                     <div class="uk-width-1-2@m">
                                         <div class="uk-panel uk-inline-clip" uk-scrollspy="uk-animation-fade">
                                             <canvas width="1080" height="1350"></canvas>
-                                            <img data-src="{{ asset('storage/img/clipins.jpg') }} " width="1080"
+                                            <img data-src="{{ asset('img/clipins.jpg') }} " width="1080"
                                                 height="1350" alt="" uk-cover uk-img />
 
                                             <div class="
@@ -91,7 +91,7 @@
                                     <div class="uk-width-1-2@m">
                                         <div class="uk-panel uk-inline-clip" uk-scrollspy="uk-animation-fade">
                                             <canvas width="1080" height="1350"></canvas>
-                                            <img data-src="{{ asset('storage/img/frontal.jpg') }}" width="1080"
+                                            <img data-src="{{ asset('img/frontal.jpg') }}" width="1080"
                                                 height="1620" alt="" uk-cover uk-img />
 
                                             <div class="frontals uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column" uk-scrollspy="uk-animation-fade">
@@ -113,7 +113,7 @@
 
                             <div>
                                 <div class="uk-panel uk-inline-clip" uk-scrollspy="uk-animation-fade">
-                                    <img data-src="{{ asset('storage/img/lace.jpg') }}" width="1375" height="1080" alt="" uk-img />
+                                    <img data-src="{{ asset('img/lace.jpg') }}" width="1375" height="1080" alt="" uk-img />
                                     <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-flex-column laces"   uk-scrollspy="uk-animation-fade"
                                     >
                                         <h5 class="uk-h3 uk-margin-remove-bottom uk-text-uppercase uk-text-bold">
@@ -139,7 +139,7 @@
                 <div class="uk-panel" >
                     <figure class="uk-inline-clip" uk-scrollspy="uk-animation-fade">
                         <canvas width="960" height="640"></canvas>
-                        <img data-src="{{ asset('storage/img/weave.jpg') }} " alt="" width="960" height="640" uk-cover uk-img />
+                        <img data-src="{{ asset('img/weave.jpg') }} " alt="" width="960" height="640" uk-cover uk-img />
 
                         <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle weaves" uk-scrollspy="uk-animation-fade">
                             <h5 class="uk-h3 uk-margin-top uk-margin-remove-bottom uk-text-uppercase uk-text-bold">
@@ -157,7 +157,7 @@
                 <div class="uk-panel" >
                     <figure class="uk-inline-clip" uk-scrollspy="uk-animation-fade">
                         <canvas width="960" height="640"></canvas>
-                        <img data-src="{{ asset('storage/img/ext.jpg') }}" alt="" width="960" height="640" uk-cover
+                        <img data-src="{{ asset('img/ext.jpg') }}" alt="" width="960" height="640" uk-cover
                             uk-img />
 
                         <div class="uk-position-cover uk-flex uk-flex-column uk-flex-center uk-flex-middle extensions ">
@@ -182,7 +182,7 @@
             <aside class="uk-width-1-3@m">
                 <div class="uk-cover-container" uk-scrollspy-class="uk-animation-slide-left-medium">
                     <canvas width="619" height="929"></canvas>
-                    <img data-src="{{ asset('storage/img/happy.jpg')}}" alt="" width="619" height="929" uk-cover
+                    <img data-src="{{ asset('img/happy.jpg')}}" alt="" width="619" height="929" uk-cover
                         uk-img />
                 </div>
                 <div class="uk-tile" uk-scrollspy-class="uk-animation-slide-left-medium">
@@ -207,7 +207,7 @@
                     <div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="uk-flex-last@s uk-card-media-right uk-cover-container"
                             uk-scrollspy-class="uk-animation-slide-right-medium">
-                            <img data-src="{{ asset('storage/img/happy2.jpg') }}" alt="" uk-cover uk-img />
+                            <img data-src="{{ asset('img/happy2.jpg') }}" alt="" uk-cover uk-img />
                             <canvas width="600" height="400"></canvas>
                         </div>
                         <div>
@@ -222,7 +222,7 @@
                         <div class="uk-width-2xlarge@m">
                             <figure class="uk-cover-container" uk-scrollspy-class="uk-animation-slide-right-medium">
                                 <canvas width="600" height="839"></canvas>
-                                <img data-src="{{ asset('storage/img/ponytail.jpg') }}" alt="" width="600" height="839"
+                                <img data-src="{{ asset('img/ponytail.jpg') }}" alt="" width="600" height="839"
                                     uk-cover uk-img />
                             </figure>
                         </div>

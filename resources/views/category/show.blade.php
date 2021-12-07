@@ -2,7 +2,7 @@
     @if ($category->cover_image_url)
     <section class="uk-section-default uk-light">
         <div class="uk-background-norepeat uk-background-cover uk-section-xlarge uk-section uk-background-top-center uk-background-secondary uk-background-blend-soft-light"
-            data-src="{{ asset('storage/' . $category->cover_image_url) }}" uk-img>
+            data-src="{{ asset('img/' . $category->cover_image_url) }}" uk-img>
             <div class="uk-container uk-container-xlarge">
                 <div class="uk-grid uk-grid-margin uk-child-width-1-1" uk-grid>
                     <div class="uk-panel">
@@ -26,7 +26,7 @@
                             <div class="uk-panel">
                                 <a href="{{ route('category.show', $subCategory->slug) }}">
                                     {{-- <canvas></canvas> --}}
-                                    <img src="{{ asset('storage/' . $subCategory->cover_image_url ) }}"
+                                    <img src="{{ asset('img/' . $subCategory->cover_image_url ) }}"
                                         alt="{{ $subCategory->name }} Thumbnail" width="70" height="70">
                                 </a>
                                 <h2 class="uk-h6 uk-margin-small-top uk-margin-remove-bottom">
