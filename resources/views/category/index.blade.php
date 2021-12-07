@@ -16,7 +16,7 @@
                         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-box-shadow" uk-grid>
                             <a href="{{ route('category.show', $parentCategory->slug) }}"
                                 class="uk-card-media-left uk-cover-container">
-                                <img data-src="{{ asset('storage/' . $parentCategory->cover_image_url)}}"
+                                <img data-src="{{ asset('img/' . $parentCategory->cover_image_url)}}"
                                     alt="{{ $parentCategory->name }} Cover Image" uk-cover uk-img>
                                 <canvas width="600" height="400"></canvas>
                             </a>

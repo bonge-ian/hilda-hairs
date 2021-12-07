@@ -5,7 +5,7 @@
     </td>
     <td>
         <img class="uk-preserve-width uk-border-rounded"
-            src="{{ asset('storage/' . $cartItem['options']['cover_image_url']) }}" width="40" height="40"
+            src="{{ asset('img/' . $cartItem['options']['cover_image_url']) }}" width="40" height="40"
             alt="{{ $cartItem['name'] }} thumbnail" loading="lazy">
     </td>
     <td class="uk-table-link">

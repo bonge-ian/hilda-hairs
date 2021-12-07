@@ -8,7 +8,7 @@
     <div class="uk-card-media-top uk-cover-container">
         <a href="{{ route('product.show', $product->slug) }}" class="uk-link-reset">
             <canvas width="433" height="650"></canvas>
-            <img data-src="{{ asset('storage/' . $product->cover_image_url) }}" alt="{{ $product->name }} Cover Image"
+            <img data-src="{{ asset('img/' . $product->cover_image_url) }}" alt="{{ $product->name }} Cover Image"
                 class="uk-cover " width="433" height="650" uk-cover uk-img>
         </a>
     </div>
