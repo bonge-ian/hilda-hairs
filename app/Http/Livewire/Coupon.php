@@ -7,14 +7,16 @@ use Livewire\Component;
 use App\Cart\CartActions;
 use Illuminate\Validation\Rule;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Session;
 
 class Coupon extends Component
 {
     public string $code = '';
 
 
-    protected $listeners= [
-        'destroy'
+    protected $listeners = [
+        'destroy',
+        'cart-item-removed' => '$refresh'
     ];
 
     public function getIsApplicableProperty()
@@ -29,6 +31,10 @@ class Coupon extends Component
 
     public function apply()
     {
+        if (!$this->getIsApplicableProperty()) {
+            return;
+        }
+
         $this->validate();
 
         // apply discount
@@ -41,11 +47,17 @@ class Coupon extends Component
 
         $couponCodeWithDiscount = strtoupper($this->codeApplied) . "({$coupon->percentage_discount} % off)";
 
+        Session::put('coupon-code', $couponCodeWithDiscount);
+
+        Session::flash('success', "{$this->couponCode} has been applied");
+
         $this->emitUp('discount-applied', $couponCodeWithDiscount, Cart::content());
+
+        $this->isApplicable = false;
 
         $this->reset('code');
 
-        $this->isApplicable = false;
+        $this->resetErrorBag();
     }
 
     public function destroy()
@@ -53,6 +65,13 @@ class Coupon extends Component
         CouponModel::where('code', $this->codeApplied)->first()->decrement('applied_count');
 
         CartActions::removeDiscount();
+
+        if (Session::exists('coupon-code')) {
+            Session::forget('coupon-code');
+        }
+
+        Session::flash('success', "{$this->couponCode} has been removed.");
+
         $this->emitUp('discount-removed', Cart::content());
 
         $this->isApplicable = true;
