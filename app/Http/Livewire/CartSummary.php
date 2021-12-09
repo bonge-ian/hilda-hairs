@@ -4,8 +4,6 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
-use PhpParser\Node\Stmt\Catch_;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -58,13 +56,7 @@ class CartSummary extends Component
     public function cartItemRemoved($content)
     {
         $this->resetContent($content);
-        $this->emitTo('bag', 'cart-item-removed');
         return;
-    }
-
-    public function coupon(string $coupon)
-    {
-        // TODO: implement coupon system
     }
 
     public function discountApplied($couponCode, $content)
@@ -72,6 +64,7 @@ class CartSummary extends Component
         $this->resetContent($content);
 
         $this->couponCode = $couponCode;
+
 
         return;
     }
@@ -83,11 +76,6 @@ class CartSummary extends Component
         return;
     }
 
-    public function flushErrors($data)
-    {
-        dd($data);
-    }
-
     public function render()
     {
         return view('livewire.cart-summary')
@@ -96,8 +84,6 @@ class CartSummary extends Component
 
     protected function resetContent($content)
     {
-        //    $content =  is_array($content) ? collect($content) : $content;
-
         $this->reset(['cartItems', 'total', 'subTotal', 'discount']);
 
         $this->cartItems = $content;
