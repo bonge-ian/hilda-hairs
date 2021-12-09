@@ -13,7 +13,6 @@ class Coupon extends Component
 {
     public string $code = '';
 
-
     protected $listeners = [
         'destroy',
         'cart-item-removed' => '$refresh'
@@ -49,7 +48,7 @@ class Coupon extends Component
 
         Session::put('coupon-code', $couponCodeWithDiscount);
 
-        Session::flash('success', "{$this->couponCode} has been applied");
+        Session::flash('success', "{$this->code} has been applied");
 
         $this->emitUp('discount-applied', $couponCodeWithDiscount, Cart::content());
 
@@ -70,7 +69,7 @@ class Coupon extends Component
             Session::forget('coupon-code');
         }
 
-        Session::flash('success', "{$this->couponCode} has been removed.");
+        Session::flash('success', "{$this->code} has been removed.");
 
         $this->emitUp('discount-removed', Cart::content());
 
