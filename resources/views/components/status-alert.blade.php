@@ -16,3 +16,19 @@
 	@endphp
 	<x-alert type="success" close="true" :message="$message"/>
 @endif
+
+@if (session('error'))
+    <x-alert type="danger" close="true" :message="$message"/>
+@endif
+
+@if (session('success'))
+    <x-alert type="success" close="true" :message="$message" />
+@endif
+
+@if (session('warning'))
+    <x-alert type="warning" close="true" :message="$message" />
+@endif
+
+@if (session('info'))
+    <x-alert type="primary" close="true" :message="$message" />
+@endif

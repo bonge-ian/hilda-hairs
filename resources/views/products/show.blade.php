@@ -7,12 +7,12 @@
                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                         <ul class="uk-slideshow-items">
                             <li>
-                                <img data-src="{{ asset('img/' . $product->cover_image_url) }}"
+                                <img data-src="{{asset( $product->cover_image_url) }}"
                                     alt="{{ $product->name }} Cover Image" uk-img uk-cover>
                             </li>
                             @foreach ($product->images as $image)
                             <li>
-                                <img data-src="{{ asset('img/' . $image) }} "
+                                <img data-src="{{asset( $image) }} "
                                     alt="{{ $product->name . " " . $loop->iteration }} Image" uk-img uk-cover>
                             </li>
                             @endforeach
@@ -31,7 +31,7 @@
                                 <li uk-slideshow-item="0" class="uk-padding-remove-top">
                                     <a href="#" class="uk-cover-container">
                                         <canvas width="50" height="51"></canvas>
-                                        <img data-src="{{ asset('img/' . $product->cover_image_url)  }}"
+                                        <img data-src="{{asset( $product->cover_image_url)  }}"
                                             alt="{{ $product->name }} Thumbnail" width="50" height="51" uk-cover uk-img>
                                     </a>
                                 </li>
@@ -39,7 +39,7 @@
                                 <li uk-slideshow-item="{{ $loop->iteration }}" class="uk-padding-remove-top">
                                     <a href="#" class="uk-cover-container">
                                         <canvas width="50" height="51"></canvas>
-                                        <img data-src="{{ asset('img/' . $thumbs) }}"
+                                        <img data-src="{{asset( $thumbs) }}"
                                             alt="{{ $product->name . " " . $loop->iteration }} Thumbnail" width="50"
                                             height="51" uk-cover uk-img>
                                     </a>
