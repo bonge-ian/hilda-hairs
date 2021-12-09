@@ -59,7 +59,7 @@
             .scrollTo(
                 document.querySelector('#product-listings')
             );
-        }, 600);
+        }, 800);
     })
 
 </script>

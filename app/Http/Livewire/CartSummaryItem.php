@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Cart\CartActions;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Gloudemans\Shoppingcart\Exceptions\InvalidRowIDException;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class CartSummaryItem extends Component
 {
@@ -37,17 +39,24 @@ class CartSummaryItem extends Component
             $this->cartItem = CartActions::update($this->cartItem['rowId'], $this->quantity)->toArray();
 
             $this->resetErrorBag();
-            
+
             $this->emitUp('cart-item-updated', Cart::content());
         } catch (InvalidRowIDException $ex) {
-            // TODO: implement error handling
+            Session::flash('error', "The cart item is not found on the cart!");
+            Log::alert("Error occured {$ex->getMessage()} on line {$ex->getLine()} of code {$ex->getCode()} produced by file {$ex->getFile()}. Stack Trace {$ex->getTraceAsString()}");
+
+            return;
         }
+
+        $this->resetErrorBag();
     }
 
     public function remove()
     {
         CartActions::delete($this->cartItem['rowId']);
-        $this->emitUp('cart-item-removed', Cart::content());
+        
+        $this->emitTo('bag', 'cart-item-removed');
+        $this->emit('cart-item-removed', Cart::content());
     }
 
     public function render()
