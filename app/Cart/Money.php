@@ -3,7 +3,7 @@
 namespace App\Cart;
 
 use Money\{Currency, Money as BaseMoney};
-use NumberFormatter;
+use \NumberFormatter;
 use Money\Currencies\ISOCurrencies;
 use Money\Formatter\IntlMoneyFormatter;
 
@@ -24,7 +24,7 @@ class Money
     public function formatted()
     {
         $formatter = new IntlMoneyFormatter(
-            new NumberFormatter('en_KE', NumberFormatter::CURRENCY),
+            new \NumberFormatter('en_KE', NumberFormatter::CURRENCY),
             new ISOCurrencies
         );
         return $formatter->format($this->money);
