@@ -17,7 +17,7 @@ class CouponFactory extends Factory
             'code' => $this->faker->unique()->word(6),
             'percentage_discount' => $this->faker->numberBetween(0, 100),
             'expiry' => $this->faker->dateTimeBetween('now', '+ 1 month'),
-            'applied_count' => $this->faker->optional()->numberBetween(0, 100),
+            'applied_count' => $this->faker->optional()->numberBetween(0, 100) ?? 0,
             'max_count' => $this->faker->numberBetween(100, 1000)
         ];
     }
