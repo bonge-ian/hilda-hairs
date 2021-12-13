@@ -35,6 +35,10 @@ class Checkout extends Component
 
     public string $town = '';
 
+    protected $messages = [
+        'phone' => 'The phone number must be a Kenyan phone number.'
+    ];
+
     public function mount()
     {
         $this->cartItems = Cart::content() ?? collect();
