@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ReviewSeeder::class,
             CouponSeeder::class,
             CountrySeeder::class,
+            CountySeeder::class,
         ]);
     }
 }
