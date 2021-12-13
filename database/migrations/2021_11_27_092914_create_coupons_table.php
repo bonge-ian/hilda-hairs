@@ -20,7 +20,7 @@ class CreateCouponsTable extends Migration
             // $table->unsignedFloat('amount_discount')->nullable();
             $table->dateTime('expiry')->nullable();
             $table->unsignedInteger('max_count')->nullable();
-            $table->unsignedInteger('applied_count')->default(0)->nullable();
+            $table->unsignedInteger('applied_count')->default(0);
             $table->timestamps();
         });
     }

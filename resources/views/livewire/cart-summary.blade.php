@@ -5,15 +5,9 @@
                 <div class="uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid>
                     <div>
                         <h1 class="uk-margin-small">Your Cart</h1>
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
+
+                        <x-status-alert />
+
                         <div class="uk-panel uk-margin-medium">
                             <div class="uk-overflow-auto uk-position-relative">
                                 <table class="uk-table uk-table-middle uk-table-divider uk-table-responsive">
@@ -72,70 +66,73 @@
                         </div>
 
                         @if (!$this->isCartEmpty)
-                            <div class="uk-panel uk-margin-medium">
-                                <div class="uk-grid uk-child-width-1-2@m uk-child-width-1-1 uk-flex-middle" uk-grid>
-                                    <div class="uk-flex-first uk-visible@m"></div>
-                                    <div class="uk-flex-last@m uk-flex-first">
-                                        <div class="uk-panel uk-position-relative">
-                                            <h2>Cart Totals</h2>
-                                            <table class="uk-table uk-table-middle uk-table-divider uk-table-responsive">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="uk-table-expand uk-text-lead uk-text-bold">
-                                                            Subtotal
-                                                        </td>
-                                                        <td class="uk-width-small uk-text-right">
-                                                            <span class="uk-text-muted">Kes</span>
-                                                            <span>{{ $subTotal }}</span>
-                                                        </td>
-                                                    </tr>
-                                                    @if (Str::of($discount)->trim()->isNotEmpty() && $discount != "0.00")
-                                                    <tr>
-                                                        <td class="uk-table-expand uk-text-lead uk-text-bold">
-                                                            <p class="uk-margin-small">Discount Applied</p>
-                                                            <div class="uk-flex uk-flex-middle uk-text-middle uk-text-small uk-text-muted">
-                                                                <span class="uk-margin-small-right uk-text-primary">
-                                                                    {{ $couponCode }}
-                                                                </span>
-                                                                <a wire:click="$emitTo('coupon', 'destroy')" href="#" class="uk-link-muted">Remove
-                                                                    Coupon</a>
-                                                            </div>
-                                                        </td>
-                                                        <td class="uk-width-small uk-text-right">
-                                                            <span class="uk-text-muted">Kes</span>
-                                                            <span>{{ $discount }}</span>
-                                                        </td>
-                                                    </tr>
-                                                    @endif
-                                                    <tr>
-                                                        <td class="uk-table-expand uk-text-lead uk-text-bold">
-                                                            Total
-                                                        </td>
-                                                        <td class="uk-width-small uk-text-right">
-                                                            <span class="uk-text-muted">Kes</span>
-                                                            <span>{{ $total }}</span>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <td colspan="2" class="uk-table-expand">
-                                                            <a href="#" class="uk-button uk-button-primary uk-width-expand uk-button-large">
-                                                                Proceed to checkout
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                            <div class="uk-position-cover uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle spinner-container"
-                                                hidden>
-                                                <div class="uk-icon uk-spinner" uk-spinner="ratio: 2"></div>
-                                            </div>
+                        <div class="uk-panel uk-margin-medium">
+                            <div class="uk-grid uk-child-width-1-2@m uk-child-width-1-1 uk-flex-middle" uk-grid>
+                                <div class="uk-flex-first uk-visible@m"></div>
+                                <div class="uk-flex-last@m uk-flex-first">
+                                    <div class="uk-panel uk-position-relative">
+                                        <h2>Cart Totals</h2>
+                                        <table class="uk-table uk-table-middle uk-table-divider uk-table-responsive">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="uk-table-expand uk-text-lead uk-text-bold">
+                                                        Subtotal
+                                                    </td>
+                                                    <td class="uk-width-small uk-text-right">
+                                                        <span class="uk-text-muted">Kes</span>
+                                                        <span>{{ $subTotal }}</span>
+                                                    </td>
+                                                </tr>
+                                                @if (Str::of($discount)->trim()->isNotEmpty() && $discount != "0.00")
+                                                <tr>
+                                                    <td class="uk-table-expand uk-text-lead uk-text-bold">
+                                                        <p class="uk-margin-small">Discount Applied</p>
+                                                        <div
+                                                            class="uk-flex uk-flex-middle uk-text-middle uk-text-small uk-text-muted">
+                                                            <span class="uk-margin-small-right uk-text-primary">
+                                                                {{ $couponCode }}
+                                                            </span>
+                                                            <a wire:click="$emitTo('coupon', 'destroy')" href="#"
+                                                                class="uk-link-muted">Remove
+                                                                Coupon</a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="uk-width-small uk-text-right">
+                                                        <span class="uk-text-muted">Kes</span>
+                                                        <span>{{ $discount }}</span>
+                                                    </td>
+                                                </tr>
+                                                @endif
+                                                <tr>
+                                                    <td class="uk-table-expand uk-text-lead uk-text-bold">
+                                                        Total
+                                                    </td>
+                                                    <td class="uk-width-small uk-text-right">
+                                                        <span class="uk-text-muted">Kes</span>
+                                                        <span>{{ $total }}</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2" class="uk-table-expand">
+                                                        <a href="{{ route('checkout') }}"
+                                                            class="uk-button uk-button-primary uk-width-expand uk-button-large">
+                                                            Proceed to checkout
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <div class="uk-position-cover uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle spinner-container"
+                                            hidden>
+                                            <div class="uk-icon uk-spinner" uk-spinner="ratio: 2"></div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+
+                        </div>
                         @endif
 
                     </div>
@@ -146,9 +143,9 @@
 </div>
 
 @once
-    @push('scripts')
-        <script>
-            window.addEventListener('updating-cart-items', event => {
+@push('scripts')
+<script>
+    window.addEventListener('updating-cart-items', event => {
 
                 document.querySelectorAll('.spinner-container').forEach((el) => {
                     var loading = setInterval(() => {
@@ -163,6 +160,6 @@
                     },1);
                 })
             });
-        </script>
-    @endpush
+</script>
+@endpush
 @endonce

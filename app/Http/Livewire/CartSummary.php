@@ -24,7 +24,8 @@ class CartSummary extends Component
         'cart-item-removed' => 'cartItemRemoved',
         'error-updating-cart-item' => 'flushErrors',
         'discount-applied' => 'discountApplied',
-        'discount-removed' => 'discountRemoved'
+        'discount-removed' => 'discountRemoved',
+        'flash-message' => 'flashMessage'
     ];
 
     public function mount()
@@ -65,7 +66,6 @@ class CartSummary extends Component
 
         $this->couponCode = $couponCode;
 
-
         return;
     }
 
@@ -74,6 +74,11 @@ class CartSummary extends Component
         $this->resetContent($content);
 
         return;
+    }
+
+    public function flashMessage(string $message)
+    {
+        Session::flash('success', $message);
     }
 
     public function render()

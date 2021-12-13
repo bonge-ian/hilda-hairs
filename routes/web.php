@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Livewire\CartSummary;
 use App\Http\Livewire\CartView;
+use App\Http\Livewire\Checkout;
 use App\Http\Livewire\ProductListings;
 use App\Http\Livewire\ProductView;
 use App\Models\Product;
@@ -42,3 +43,4 @@ Route::prefix('products')->name('product.')->group(function () {
 });
 
 Route::get('/cart', CartSummary::class)->name('cart');
+Route::get('/checkout', Checkout::class)->name('checkout');

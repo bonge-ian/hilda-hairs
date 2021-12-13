@@ -18,17 +18,17 @@
 @endif
 
 @if (session('error'))
-    <x-alert type="danger" close="true" :message="$message"/>
+    <x-alert type="danger" close="true" :message="session('error')"/>
 @endif
 
 @if (session('success'))
-    <x-alert type="success" close="true" :message="$message" />
+    <x-alert type="success" close="true" :message="session('success')" />
 @endif
 
 @if (session('warning'))
-    <x-alert type="warning" close="true" :message="$message" />
+    <x-alert type="warning" close="true" :message="session('warning')" />
 @endif
 
 @if (session('info'))
-    <x-alert type="primary" close="true" :message="$message" />
+    <x-alert type="primary" close="true" :message="session('info')" />
 @endif

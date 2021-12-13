@@ -26,7 +26,7 @@
                             <div class="uk-panel">
                                 <a href="{{ route('category.show', $subCategory->slug) }}">
                                     {{-- <canvas></canvas> --}}
-                                    <img src="{{ asset('img/' . $subCategory->cover_image_url ) }}"
+                                    <img src="{{ asset($subCategory->cover_image_url ) }}"
                                         alt="{{ $subCategory->name }} Thumbnail" width="70" height="70">
                                 </a>
                                 <h2 class="uk-h6 uk-margin-small-top uk-margin-remove-bottom">

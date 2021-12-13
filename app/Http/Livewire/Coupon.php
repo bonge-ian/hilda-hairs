@@ -30,34 +30,21 @@ class Coupon extends Component
 
     public function apply()
     {
-        if (!$this->getIsApplicableProperty()) {
-            return;
-        }
+        $this->checkIfCanApplyCoupon();
 
         $this->validate();
 
-        // apply discount
-        $coupon = CouponModel::where('code', strtolower($this->code))->first();
-        $coupon->increment('applied_count');
+        $couponCodeWithDiscount = $this->processCoupon($this->code);
 
-        $this->codeApplied = $coupon->code;
-
-        CartActions::discount($coupon->percentage_discount);
-
-        $couponCodeWithDiscount = strtoupper($this->codeApplied) . "({$coupon->percentage_discount} % off)";
-
-        Session::put('coupon-code', $couponCodeWithDiscount);
-
-        Session::flash('success', "{$this->code} has been applied");
+        $this->emitUp('flash-message', strtoupper($this->codeApplied) . " coupon code has been applied");
 
         $this->emitUp('discount-applied', $couponCodeWithDiscount, Cart::content());
-
-        $this->isApplicable = false;
 
         $this->reset('code');
 
         $this->resetErrorBag();
     }
+
 
     public function destroy()
     {
@@ -65,11 +52,12 @@ class Coupon extends Component
 
         CartActions::removeDiscount();
 
-        if (Session::exists('coupon-code')) {
+        if (Session::exists('coupon-code') || Session::exists('coupon-code-with-discount')) {
             Session::forget('coupon-code');
+            Session::forget('coupon-code-with-discount');
         }
 
-        Session::flash('success', "{$this->code} has been removed.");
+        $this->emitUp('flash-message', strtoupper($this->codeApplied) . " coupon code has been removed.");
 
         $this->emitUp('discount-removed', Cart::content());
 
@@ -81,6 +69,43 @@ class Coupon extends Component
         return view('livewire.coupon');
     }
 
+    protected function processCoupon(string $code)
+    {
+        $coupon = CouponModel::where('code', strtolower($code))->first();
+        $coupon->increment('applied_count');
+
+        $this->codeApplied = $coupon->code;
+
+        Session::put('coupon-code', strtoupper($this->codeApplied));
+
+        CartActions::discount($coupon->percentage_discount);
+
+        $couponCodeWithDiscount = strtoupper($this->codeApplied) . "({$coupon->percentage_discount} % off)";
+
+        Session::put('coupon-code-with-discount', $couponCodeWithDiscount);
+
+        $this->isApplicable = false;
+
+        return $couponCodeWithDiscount;
+    }
+
+    protected function checkIfCanApplyCoupon()
+    {
+        if (!$this->getIsApplicableProperty()) {
+            return;
+        }
+
+        if (
+            Session::exists('coupon-code')
+            &&
+            strtoupper($this->codeApplied === Session::get('coupon-code'))
+        ) {
+            $this->addError('code', "The coupon has already been applied!.");
+            $this->isApplicable = false;
+            return;
+        }
+    }
+
     protected function rules()
     {
         return [
@@ -90,8 +115,10 @@ class Coupon extends Component
                     'required',
                     'string',
                     Rule::exists('coupons')->where(function ($query) {
-                        return $query->where('expiry', '>', now());
-                    })
+                        return $query->where('expiry', '>', now())
+                            ->whereColumn('max_count', '>=', 'applied_count');
+                    }),
+
                 ]
             )
         ];

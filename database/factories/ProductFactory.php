@@ -26,7 +26,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $name = $this->faker->unique()->name(),
+            'name' => $name = $this->faker->unique()->text(random_int(10, 30)),
             // 'category_id' => (Category::factory()->create())->id,
             'slug' => Str::slug($name),
             'caption' => $this->faker->text(),
@@ -47,7 +47,7 @@ class ProductFactory extends Factory
                     $images = Arr::add(
                         $images,
                         $range,
-                        "img/{$this->faker->numberBetween(1,22)}.jpg"
+                        "img/{$this->faker->numberBetween(1, 22)}.jpg"
                     );
                 }
                 return $images;
