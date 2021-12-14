@@ -1,7 +1,7 @@
 <section class="uk-section uk-section-large uk-section-secondary uk-padding-remove-bottom uk-preserve-color"
     uk-height-viewport="expand:true; offset-top: true">
     <div class="uk-container">
-        @if ($cartItems->isNotEmpty())
+        @if (!empty($cartItems))
             <div class="uk-width-1-1">
                 <div class="uk-margin">
                     <x-alert type="danger" message="At the moment, we only ship for customers located in Kenya." />
@@ -68,26 +68,26 @@
                             <div class="uk-width-1-1">
                                 <label for="name">Fullname</label>
                                 <div class="uk-form-controls">
-                                    <input type="text" wire:model="name" name="name" id="name" placeholder="Marie Hilda" class="uk-input @error('name') uk-form-danger @enderror"
+                                    <input type="text" wire:model.lazy="name" name="name" id="name" placeholder="Marie Hilda" class="uk-input @error('name') uk-form-danger @enderror"
                                     @if (auth()->check()) disabled @endif>
                                 </div>
                                 @error('name')
                                 <div class="uk-margin-small">
-                                    <x-alert :message="$message" close="false" type="error" />
+                                    <x-alert :message="$message" close="false" type="danger" />
                                 </div>
                                 @enderror
                             </div>
                             <div class="uk-width-1-2@m">
                                 <label for="name">Phone</label>
                                 <div class="uk-form-controls">
-                                    <input type="tel" wire:model="phone" name="phone" id="phone"
+                                    <input type="tel" wire:model.lazy="phone" name="phone" id="phone"
                                         placeholder="+254712345678/0712345678"
                                         class="uk-input @error('phone') uk-form-danger @enderror"
                                         @if (auth()->check()) disabled @endif>
                                 </div>
                                 @error('phone')
                                 <div class="uk-margin-small">
-                                    <x-alert :message="$message" close="false" type="error" />
+                                    <x-alert :message="$message" close="false" type="danger" />
                                 </div>
                                 @enderror
                             </div>
@@ -95,14 +95,14 @@
                             <div class="uk-width-1-2@m">
                                 <label for="name">Email</label>
                                 <div class="uk-form-controls">
-                                    <input type="email" wire:model="email" name="email" id="email"
+                                    <input type="email" wire:model.lazy="email" name="email" id="email"
                                         placeholder="mariehilda@example.com"
                                         class="uk-input @error('email') uk-form-danger @enderror"
                                         @if (auth()->check()) disabled @endif>
                                 </div>
                                 @error('email')
                                 <div class="uk-margin-small">
-                                    <x-alert :message="$message" close="false" type="error" />
+                                    <x-alert :message="$message" close="false" type="danger" />
                                 </div>
                                 @enderror
                             </div>
@@ -110,7 +110,7 @@
                             <div class="uk-width-1-1">
                                 <label for="county">County</label>
                                 <div class="uk-form-controls">
-                                    <select wire:click.prefetch="fetchCounties" wire:model="county" name="county" id="county"
+                                    <select wire:click.prefetch="fetchCounties" wire:model.lazy="county" name="county" id="county"
                                         class="uk-input @error('county') uk-form-danger @enderror">
                                         <option value="0"> Choose a county </option>
                                         @foreach ($counties as $county)
@@ -120,7 +120,7 @@
                                 </div>
                                 @error('county')
                                 <div class="uk-margin-small">
-                                    <x-alert :message="$message" close="false" type="error" />
+                                    <x-alert :message="$message" close="false" type="danger" />
                                 </div>
                                 @enderror
                             </div>
@@ -129,26 +129,26 @@
                                 <label for="address">Street Address</label>
                                 <div class="uk-width-1-1">
                                     <div class="uk-form-controls">
-                                        <input type="text" wire:model="address_1" name="address_1" id="address_1"
+                                        <input type="text" wire:model.lazy="address_1" name="address_1" id="address_1"
                                             placeholder="House number,street name"
                                             class="uk-input @error('address_1') uk-form-danger @enderror" required
                                             autocomplete="on">
                                     </div>
                                     @error('address_1')
                                     <div class="uk-margin-small">
-                                        <x-alert :message="$message" close="false" type="error" />
+                                        <x-alert :message="$message" close="false" type="danger" />
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="uk-width-1-1 uk-margin">
                                     <div class="uk-form-controls">
-                                        <input type="text" wire:model="address_2" name="address_2" id="address_2"
+                                        <input type="text" wire:model.lazy="address_2" name="address_2" id="address_2"
                                             placeholder="Apartment,suite,unit,etc"
                                             class="uk-input @error('address_2') uk-form-danger @enderror" autocomplete="on">
                                     </div>
                                     @error('address_2')
                                     <div class="uk-margin-small">
-                                        <x-alert :message="$message" close="false" type="error" />
+                                        <x-alert :message="$message" close="false" type="danger" />
                                     </div>
                                     @enderror
                                 </div>
@@ -158,13 +158,13 @@
                             <div class="uk-width-1-1">
                                 <label for="postalcode">Postal Code (optional)</label>
                                 <div class="uk-form-controls">
-                                    <input type="text" wire:model="postalcode" name="postalcode" id="postalcode"
+                                    <input type="text" wire:model.lazy="postalcode" name="postalcode" id="postalcode"
                                         placeholder="Postal Code (optional)"
                                         class="uk-input @error('postalcode') uk-form-danger @enderror" autocomplete="on">
                                 </div>
                                 @error('postalcode')
                                 <div class="uk-margin-small">
-                                    <x-alert :message="$message" close="false" type="error" />
+                                    <x-alert :message="$message" close="false" type="danger" />
                                 </div>
                                 @enderror
                             </div>
@@ -172,13 +172,13 @@
                             <div class="uk-width-1-1">
                                 <label for="orderNotes">Order Notes (optional)</label>
                                 <div class="uk-form-controls">
-                                    <textarea wire:model="orderNotes" name="orderNotes" id="orderNotes" rows="5"
+                                    <textarea wire:model.lazy="orderNotes" name="orderNotes" id="orderNotes" rows="5"
                                         class="uk-textarea @error('orderNotes') uk-form-dange @enderror"
                                         placeholder="Notes about your order, e.g. special notes for delivery, who to deliver to the order."></textarea>
                                 </div>
                                 @error('orderNotes')
                                 <div class="uk-margin-small">
-                                    <x-alert :message="$message" close="false" type="error" />
+                                    <x-alert :message="$message" close="false" type="danger" />
                                 </div>
                                 @enderror
                             </div>
@@ -186,14 +186,14 @@
                             <div class="uk-width-1-1">
                                 <div class="uk-form-controls">
                                     <label>
-                                        <input type="checkbox" wire:model="createAccount"
+                                        <input type="checkbox" wire:model.lazy="createAccount"
                                             class="uk-checkbox uk-margin-small-right @error('createAccount') uk-form-danger @enderror">
                                         Create account
                                     </label>
                                 </div>
                                 @error('createAccount')
                                 <div class="uk-margin-small">
-                                    <x-alert :message="$message" close="false" type="error" />
+                                    <x-alert :message="$message" close="false" type="danger" />
                                 </div>
                                 @enderror
                             </div>
@@ -212,11 +212,11 @@
                                 @foreach ($cartItems as $cartItem)
                                 <tr>
                                     <td>
-                                        {{ $cartItem->name }} - {{ $cartItem->options->size }} {{ $cartItem->options->color}} x
-                                        {{ $cartItem->qty }}
+                                        {{ $cartItem['name'] }} - {{ $cartItem['options']['size'] }} {{ $cartItem['options']['color']}} x
+                                        {{ $cartItem['qty'] }}
                                     </td>
                                     <td>
-                                        {{ $cartItem->price  *  $cartItem->qty }}
+                                        {{ $cartItem['price']  *  $cartItem['qty'] }}
                                     </td>
                                 </tr>
                                 @endforeach

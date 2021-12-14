@@ -15,7 +15,7 @@ class Checkout extends Component
 
     public ?string $address_2;
 
-    public Collection $cartItems;
+    public array $cartItems;
 
     public bool $createAccount = false;
 
@@ -41,13 +41,13 @@ class Checkout extends Component
 
     public function mount()
     {
-        $this->cartItems = Cart::content() ?? collect();
+        $this->cartItems = Cart::content()->toArray() ?? [];
         $this->counties = collect();
 
         $this->fillFromAuthenticatedUser();
     }
 
-    public function fetchCounties() : void
+    public function fetchCounties(): void
     {
         $this->counties = County::all();
     }
@@ -76,7 +76,7 @@ class Checkout extends Component
         ]);
     }
 
-    protected function rules() : array
+    protected function rules(): array
     {
         return [
             'name' => [
@@ -101,7 +101,7 @@ class Checkout extends Component
             'address_2' => 'required_if:address_1|string|max:255',
             'orderNotes' => 'sometimes|required|string|min:3',
             'town' => 'required|string',
-            'postalCode' => 'sometimes|required|string|min:5',
+            'postalcode' => 'sometimes|required|string|min:5',
             'createAccount' => 'sometimes|accepted'
         ];
     }
