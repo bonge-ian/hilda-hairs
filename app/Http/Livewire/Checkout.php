@@ -13,9 +13,9 @@ class Checkout extends Component
 {
     public string $address_1 = '';
 
-    public ?string $address_2;
+    public ?string $address_2 = '';
 
-    public array $cartItems;
+    public array $cartItems = [];
 
     public bool $createAccount = false;
 
@@ -41,7 +41,7 @@ class Checkout extends Component
 
     public function mount()
     {
-        $this->cartItems = Cart::content()->toArray() ?? [];
+        $this->cartItems = Cart::content()->toArray();
         $this->counties = collect();
 
         $this->fillFromAuthenticatedUser();
