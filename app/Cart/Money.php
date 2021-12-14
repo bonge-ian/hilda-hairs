@@ -3,6 +3,7 @@
 namespace App\Cart;
 
 use Money\{Currency, Money as BaseMoney};
+use \NumberFormatter;
 use Money\Currencies\ISOCurrencies;
 use Money\Formatter\IntlMoneyFormatter;
 
