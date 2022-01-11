@@ -35,6 +35,20 @@
 				@enderror
 			</div>
 		</div>
+
+        <div class="uk-margin uk-width-large">
+            <label class="uk-form-label">{{ __('Phone') }}</label>
+
+            <div class="uk-width-1-1">
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: phone"></span>
+                    <input class="uk-input @error('phone', 'updateProfileInformation') uk-form-danger @enderror" type="tel" name="email" value="{{ old('phone') ?? auth()->user()->phone }}" required />
+                </div>
+                @error('phone', 'updateProfileInformation')
+                    <x-alert type="danger" :message="$message" />
+                @enderror
+            </div>
+        </div>
 	</form>
 
 	<x-slot name="submit_form_id">{{ __('profile-update-info') }}</x-slot>
