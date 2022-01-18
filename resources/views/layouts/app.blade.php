@@ -36,11 +36,13 @@
 
 		<main class="uk-background-muted">
 
-			<aside class="uk-container">
-				<div class="uk-margin-top">
-					<x-status-alert />
-				</div>
-			</aside>
+			@if (session('status'))
+                <aside class="uk-container">
+                    <div class="uk-margin-top">
+                        <x-status-alert />
+                    </div>
+                </aside>
+            @endif
 
 			{{ $slot }}
 		</main>
