@@ -8,7 +8,7 @@
                     name="color" id="color" class="uk-select">
                     <option value="0">Choose a color</option>
                     @foreach ($colors as $color)
-                    <option wire:key="{{ $color }}" value="{{ $color }}">{{ $color }}</option>
+                    <option :wire:key="$color" value="{{ $color }}">{{ $color }}</option>
                     @endforeach
                 </select>
             </div>
@@ -26,7 +26,7 @@
                     class="uk-select">
                     <option value="0">--- Pick a color first ---</option>
                     @foreach ($sizes as $size)
-                    <option wire:key="{{ $size }}" value="{{ $size }}">{{ $size }}</option>
+                    <option :wire:key="$size" value="{{ $size }}">{{ $size }}</option>
                     @endforeach
                 </select>
             </div>
