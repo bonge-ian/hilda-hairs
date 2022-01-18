@@ -173,7 +173,7 @@
                             uk-height-match="target: > li > div > .uk-button-default">
                             @foreach ($relatedProducts as $related)
                             <li>
-                                <x-product-card :product="$related" />
+                                <x-product-card :product="$related" :wire:key="$related->id" />
                             </li>
                             @endforeach
                         </ul>
