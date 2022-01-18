@@ -12085,33 +12085,46 @@ img[data-src][src*="data:image"] {
   fill: #dcad61;
 }
 
-.skeleton-body-placeholder,
-.skeleton-title-placeholder,
-.skeleton-image,
-.skeleton-meta-placeholder {
-  background: rgba(153, 153, 153, 0.1);
+@-webkit-keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
 }
 
-.skeleton-body,
-.skeleton-image {
-  height: 5rem;
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+.animation-pulse {
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.skeleton-image {
-  width: 5rem;
+.action-placeholder,
+.category-placeholder,
+.img-placehoder,
+.price-placeholder,
+.stock-placeholder,
+.title-placeholder {
+  background-color: #1e1e1e;
 }
 
-.skeleton-title-placeholder,
-.skeleton-meta-placeholder {
-  height: 20px;
+.title-placeholder {
+  height: 1.25rem;
 }
 
-.skeleton-title-placeholder {
-  width: 40%;
+.price-placeholder {
+  height: 1rem;
 }
 
-.skeleton-meta-placeholder {
-  width: 20%;
+.stock-placeholder,
+.category-placeholder {
+  height: 0.75rem;
+}
+
+.action-placeholder {
+  height: 2rem;
 }
 
 .hero .overlay {

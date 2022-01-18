@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Cart\CartActions;
+use App\Models\ProductVariation;
 use Gloudemans\Shoppingcart\Exceptions\CartAlreadyStoredException;
 
 class QuickAdd extends Component
@@ -14,17 +15,13 @@ class QuickAdd extends Component
 
     public $productImageUrl;
 
-    public function mount($variation, $productName, $productImageUrl)
-    {
-        $this->variation = $variation;
-        $this->productName = $productName;
-        $this->productImageUrl = $productImageUrl;
-    }
-
     public function addToCart()
     {
-        $this->variation->loadMissing(['size:id,name', 'color:id,name']);
-
+        $this->variation->loadMissing([
+            'size:id,name',
+            'color:id,name'
+        ]);
+        
         try {
             CartActions::add(
                 $this->variation,

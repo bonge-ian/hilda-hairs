@@ -53,8 +53,10 @@
                         <span class="uk-icon uk-text-right" uk-icon="icon: product-options"></span>
                     </a>
                 @else
+
                     <livewire:quick-add :wire:key="'quick-add'.$product->id" :variation="$product->variations->first()"
-                    :productName="$product->name" :productImageUrl="$product->cover_image_url" />
+                    :productName="$product->name" :productImageUrl="$product->cover_image_url"
+                    :wire:key="$product->id"/>
                 @endif
             @else
                 <button type="button" disabled
