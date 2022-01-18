@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "development": "SET NODE_OPTIONS=--openssl-legacy-provider && mix",
+        "development": "mix",
         "dev": "npm run development",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
@@ -14,7 +14,7 @@
         "browser-sync-webpack-plugin": "^2.2.2",
         "laravel-mix": "^6.0.6",
         "postcss": "^8.2.4",
-        "resolve-url-loader": "^4.0.0",
+        "resolve-url-loader": "^5.0.0",
         "sass": "^1.32.2",
         "sass-loader": "^8.0.2"
     },

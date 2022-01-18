@@ -1,0 +1,24 @@
+.action-placeholder,
+.category-placeholder,
+.img-placehoder,
+.price-placeholder,
+.stock-placeholder,
+.title-placeholder {
+    background-color: lighten($color: $global-background, $amount: 4.5%);
+}
+.title-placeholder {
+    height: 1.25rem;
+}
+
+.price-placeholder {
+    height: 1rem;
+}
+
+.stock-placeholder,
+.category-placeholder {
+    height: 0.75rem;
+}
+
+.action-placeholder {
+    height: 2rem;
+}
