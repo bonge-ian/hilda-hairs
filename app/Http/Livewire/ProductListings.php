@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,11 +13,18 @@ class ProductListings extends Component
 
     public $sort;
 
-    protected $products;
+    public $readyToLoadProducts = false;
+
+    protected $products = null;
 
     protected $queryString = [
         'sort' => ['except' => 'Default Sorting']
     ];
+
+    public function loadPosts()
+    {
+        $this->readyToLoadProducts = true;
+    }
 
     public function updatingSort()
     {
@@ -48,8 +56,16 @@ class ProductListings extends Component
 
     public function render()
     {
+        $initProducts = $this->readyToLoadProducts
+            ? Cache::remember(
+                'initial-product-list',
+                now()->addDay(),
+                fn () => Product::with(['variations.stock'])->paginate(40)
+            )
+            : [];
+
         return view('livewire.product-listings', [
-            'products' => $this->products ?? Product::with(['variations.stock'])->paginate(32)
+            'products' => $this->products ?? $initProducts
         ]);
     }
 }

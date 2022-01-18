@@ -1,4 +1,5 @@
-<section class="uk-section uk-section-large uk-padding-small-top uk-position-relative" id="product-listings">
+<section wire:init="loadPosts" class="uk-section uk-section-large uk-padding-small-top uk-position-relative uk-animation-fade"
+    id="product-listings" uk-animation-fade>
     <div class="uk-container uk-container-xlarge">
         {{-- sorting section --}}
         <aside class="uk-grid uk-grid-small uk-flex-middle uk-text-middle" uk-grid>
@@ -54,12 +55,12 @@
     Livewire.on('pageUpdated', () => {
         setTimeout(() => {
             UIkit.scroll(
-                document.querySelector("[uk-totop]")
+                document.querySelector("[uk-totop]"),
             )
             .scrollTo(
                 document.querySelector('#product-listings')
             );
-        }, 800);
+        }, 900);
     })
 
 </script>
