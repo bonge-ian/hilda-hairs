@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="uk-width-expand uk-panel ">
-                                <select wire:model="sort" name="sort" id="sort" class="uk-select">
+                                <select wire:loading.attr="disabled" wire:model="sort" name="sort" id="sort" class="uk-select">
                                     <option>Default Sorting</option>
                                     <option value="latest">Latest</option>
                                     <option value="popular">Popular</option>
