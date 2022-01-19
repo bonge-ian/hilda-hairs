@@ -19,6 +19,6 @@
         "sass-loader": "^8.0.2"
     },
     "dependencies": {
-        "uikit": "^3.10.0"
+        "uikit": "^3.10.1"
     }
 }
