@@ -46,18 +46,18 @@
         </div>
         <div class="uk-width-1-1 uk-panel uk-margin">
             @if ($product->in_stock)
-                @if ($product->variations_count >= 2)
+                <div>
+                    @if ($product->variations_count >= 2)
                     <a href="{{ route('product.show', $product->slug) }}"
                         class="uk-button uk-button-default uk-border-rounded uk-flex uk-flex-between uk-flex-middle">
                         <span>Select Options</span>
                         <span class="uk-icon uk-text-right" uk-icon="icon: product-options"></span>
                     </a>
-                @else
-
+                    @else
                     <livewire:quick-add :wire:key="'quick-add'.$product->id" :variation="$product->variations->first()"
-                    :productName="$product->name" :productImageUrl="$product->cover_image_url"
-                    :wire:key="$product->id"/>
-                @endif
+                        :productName="$product->name" :productImageUrl="$product->cover_image_url" :wire:key="$product->id" />
+                    @endif
+                </div>
             @else
                 <button type="button" disabled
                     class="uk-width-1-1 uk-button uk-button-default uk-border-rounded uk-flex uk-flex-between uk-flex-middle">
