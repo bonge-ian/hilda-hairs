@@ -8,34 +8,38 @@ use Illuminate\Support\Facades\Cache;
 
 class RelatedProducts extends Component
 {
+    public $readyToLoadRelatedProducts = false;
+
     public $categoryId;
 
     public $productId;
 
-    public function mount(int $productId, int $categoryId)
+    public function loadRelatedProducts()
     {
-        $this->productId = $productId;
-        $this->categoryId = $categoryId;
-    }
-
-    public function getRelatedProductsProperty()
-    {
-        return Cache::remember(
-            'related-products',
-            now()->addDays(3),
-            fn () => Product::where([
-                    ['id', '<>', $this->productId],
-                    ['category_id', '=', $this->categoryId]
-                ])
-                ->with(['category:id,name,slug', 'variations.stock'])
-                ->inRandomOrder()
-                ->limit(8)
-                ->get()
-        );;
+        $this->readyToLoadRelatedProducts = true;
     }
 
     public function render()
     {
-        return view('livewire.related-products');
+        $relatedProducts = $this->readyToLoadRelatedProducts ? $this->fetch() : [];
+
+        return view('livewire.related-products', compact('relatedProducts'));
+    }
+
+    protected function fetch()
+    {
+        $products = Product::whereKeyNot($this->productId)
+            ->whereRelation('category', 'id', '=', $this->categoryId)
+            // ->where('category_id', '=', $this->categoryId)
+            ->with(['category:id,name,slug', 'variations.stock'])
+            ->inRandomOrder()
+            ->limit(8)
+            ->get();
+
+        return Cache::remember(
+            'related-products',
+            now()->addDays(3),
+            fn () => $products
+        );
     }
 }
