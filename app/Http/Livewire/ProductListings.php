@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
-use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,14 +10,17 @@ class ProductListings extends Component
 {
     use WithPagination;
 
-    public $sort = null;
+    public $sort = '';
+
+    public $page = 1;
 
     public $readyToLoadProducts = false;
 
-    protected $products = null;
+    protected $products = [];
 
     protected $queryString = [
-        'sort' => ['except' => 'Default Sorting']
+        'sort' => ['except' => ''],
+        'page' => ['except' => 1]
     ];
 
     public function loadPosts()
@@ -33,18 +35,18 @@ class ProductListings extends Component
 
     public function updatedSort($value)
     {
-        $this->products = Product::with(['variations.stock']);
+        $this->products = Product::with('variations.stock');
 
         $this->products = (match ($value) {
             'latest' => $this->products->latest(),
             'popular' => $this->products->inRandomOrder(),
-            'price' => $this->products->orderBy('price', 'asc'),
+            'price-asc' => $this->products->orderBy('price', 'asc'),
             'price-desc' => $this->products->orderBy('price', 'desc'),
             default => $this->products->ordered()
         })->paginate(32);
     }
 
-    public function updatedPaginators($page, $pageName)
+    public function updatingPaginators()
     {
         $this->emit('pageUpdated');
     }
@@ -57,15 +59,11 @@ class ProductListings extends Component
     public function render()
     {
         $initProducts = $this->readyToLoadProducts
-            ? Cache::remember(
-                'initial-product-list',
-                now()->addDay(),
-                fn () => Product::with(['variations.stock'])->paginate(40)
-            )
+            ?  Product::with('variations.stock')->paginate(32)
             : [];
 
         return view('livewire.product-listings', [
-            'products' => $this->products ?? $initProducts
+            'products' => (!empty($this->products)) ? $this->products : $initProducts
         ]);
     }
 }
