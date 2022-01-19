@@ -13,8 +13,9 @@
     @endforelse
 </article>
 
-@if (!empty($products))
-    <div class="uk-margin-large">
-        {{ $products->links() }}
-    </div>
-@endif
+ 
+    @if (!empty($products))
+        <div class="uk-margin-large">
+            {{ $products->links() }}
+        </div>
+    @endif
