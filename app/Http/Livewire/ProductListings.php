@@ -11,7 +11,7 @@ class ProductListings extends Component
 {
     use WithPagination;
 
-    public $sort;
+    public $sort = null;
 
     public $readyToLoadProducts = false;
 
