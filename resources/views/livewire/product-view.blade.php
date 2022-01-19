@@ -95,6 +95,11 @@
                             @if ($product->variations_count > 0)
                             <livewire:variations :variations="$this->variations" :productName="$product->name"
                                 :image="$product->cover_image_url" />
+
+                            @else
+                                <div class="uk-panel uk-margin-medium uk-width-xlarge uk-margin-auto@m">
+                                    <x-alert type="danger" message="This product is currently out of stock."/>
+                                </div>
                             @endif
 
                         </div>
@@ -103,25 +108,22 @@
             </div>
         </div>
     </section>
-    <section class="uk-section uk-padding-remove-vertical uk-preserve-color">
-        <div class="uk-grid uk-grid-collapse uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
-            <div class="uk-tile-secondary uk-preserve-color">
-                <div class="uk-tile uk-flex uk-flex-middle uk-tile-xlarge ">
-                    <div class="uk-width-1-1 uk-panel">
-                        <div class="uk-panel uk-margin-medium  uk-margin-auto@m uk-width-xlarge">
-                            <h2 class="uk-h1 uk-text-bold uk-text-primary">Product Details</h2>
-                            <hr class="uk-divider-small">
-                        </div>
-                        <div class="uk-panel uk-margin-medium uk-width-xlarge uk-margin-auto@m">
-                            <p>{{ $product->description }}</p>
-                        </div>
+
+    <section class="uk-section uk-section-large uk-preserve-color uk-section-secondary"
+        uk-scrollspy="target: [uk-scrollspy-class]; cls: uk-animation-slide-bottom-small; delay: 200;">
+        <div class="uk-container uk-container-xsmall">
+            <article class="uk-grid uk-child-width-1-1 uk-grid-margin uk-grid-stack" uk-grid>
+                <div class="uk-width-1-1@m">
+                    <h2 class="uk-h1 uk-text-bold uk-text-primary   uk-text-center@m" uk-scrollspy-class>Product Details</h2>
+                    <hr class="uk-divider-small uk-text-center@m" uk-scrollspy-class>
+                    <div class="uk-column-1-2@m uk-margin" uk-scrollspy-class>
+                        <p>{{ $product->description }}</p>
                     </div>
                 </div>
-            </div>
-            <div class="uk-grid-item-match">
-                <livewire:product-reviews :productId="$product->id" :productName="$product->name" />
-            </div>
+            </article>
         </div>
     </section>
+
+
     <livewire:related-products :productId="$product->id" :categoryId="$product->category->id" />
 </div>
