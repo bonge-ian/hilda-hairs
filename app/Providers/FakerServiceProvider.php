@@ -5,7 +5,6 @@ namespace App\Providers;
 use Faker\{Factory, Generator};
 use App\Faker\KenyanPhoneNumbers;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Enum\Faker\FakerEnumProvider;
 
 class FakerServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,7 @@ class FakerServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Generator::class, function () {
             $faker = Factory::create();
-            $faker->addProvider(new FakerEnumProvider($faker));
+            // $faker->addProvider(new FakerEnumProvider($faker));
             $faker->addProvider(new KenyanPhoneNumbers($faker));
 
             return $faker;

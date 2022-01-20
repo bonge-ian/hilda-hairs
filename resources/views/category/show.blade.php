@@ -1,19 +1,19 @@
 <x-app-layout title="{{ $category->name }}">
     @if ($category->cover_image_url)
-    <section class="uk-section-default uk-light">
-        <div class="uk-background-norepeat uk-background-cover uk-section-xlarge uk-section uk-background-top-center uk-background-secondary uk-background-blend-soft-light"
-            data-src="{{ asset($category->cover_image_url) }}" uk-img>
-            <div class="uk-container uk-container-xlarge">
-                <div class="uk-grid uk-grid-margin uk-child-width-1-1" uk-grid>
-                    <div class="uk-panel">
-                        <h1 class="uk-text-uppercase uk-text-bold uk-heading-large uk-margin-xlarge uk-text-center">
-                            {{ $category->name }}
-                        </h1>
+        <section class="uk-section-default uk-light">
+            <div class="uk-background-norepeat uk-background-cover uk-section-xlarge uk-section uk-background-top-center uk-background-secondary uk-background-blend-soft-light"
+                data-src="{{ asset($category->cover_image_url) }}" uk-img>
+                <div class="uk-container uk-container-xlarge">
+                    <div class="uk-grid uk-grid-margin uk-child-width-1-1" uk-grid>
+                        <div class="uk-panel">
+                            <h1 class="uk-text-uppercase uk-text-bold uk-heading-large uk-margin-xlarge uk-text-center">
+                                {{ $category->name }}
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     @if ($category->children->count())
@@ -49,7 +49,9 @@
                 <x-breadcrumbs />
             </div>
 
-           <x-product-grid :products="$products"/>
+            <div class="uk-width-1-1 uk-margin">
+                <livewire:category-products :categoryId="$category->id" />
+            </div>
 
            <hr class="uk-margin-xlarge">
         </div>

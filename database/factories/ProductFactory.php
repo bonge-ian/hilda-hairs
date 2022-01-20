@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\HairTypeEnum;
+use App\Models\Casts\HairTypeCast;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Str;
@@ -30,7 +31,7 @@ class ProductFactory extends Factory
             // 'category_id' => (Category::factory()->create())->id,
             'slug' => Str::slug($name),
             'caption' => $this->faker->text(),
-            'type' => $this->faker->randomEnum(HairTypeEnum::class),
+            'type' => $this->faker->numberBetween(1, count(HairTypeEnum::cases())),
             'price' => $this->faker->numberBetween($min = 100_000, $max = 10000000),
             'description' => $this->faker->paragraphs(6, true),
             'order' => $this->faker->randomDigitNotNull(),

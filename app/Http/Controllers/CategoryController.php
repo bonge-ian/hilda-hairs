@@ -15,20 +15,8 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-         $category->loadMissing(['children', 'products', 'childrenProducts']);
+         $category->loadMissing(['children']);
 
-        $categoryProducts = $category->products->loadMissing('variations.stock');
-
-        $childrenProducts = $category->childrenProducts->flatMap(
-            fn ($child) => $child->products->flatten()
-        );
-
-        $products = Cache::remember(
-            'category-products',
-            now()->addDays(3),
-            fn () => $categoryProducts->merge($childrenProducts)
-        )->paginate(40);
-
-        return view('category.show', compact(['category', 'products']));
+        return view('category.show', compact('category'));
     }
 }

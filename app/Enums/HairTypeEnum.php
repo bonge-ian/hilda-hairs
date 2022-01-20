@@ -2,14 +2,9 @@
 
 namespace App\Enums;
 
-use Spatie\Enum\Enum;
-
-/**
- * @method static self synthetic()
- * @method static self semiHuman()
- * @method static self human()
- */
-class HairTypeEnum extends Enum
+enum HairTypeEnum : int
 {
-
+    case synthetic = 1;
+    case semiHuman = 2;
+    case human = 3;
 }

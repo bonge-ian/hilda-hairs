@@ -10,7 +10,7 @@
     "require": {
         "ext-intl": "*",
         "ext-gd": "*",
-        "php": "^7.3|^8.0",
+        "php": "^8.1",
         "bonge-ian/fokit": "^1.1",
         "bumbummen99/shoppingcart": "^4.0",
         "fideloper/proxy": "^4.4",
@@ -22,7 +22,6 @@
         "moneyphp/money": "^4.0",
         "propaganistas/laravel-disposable-email": "^2.1",
         "propaganistas/laravel-phone": "^4.3",
-        "spatie/enum": "^3.9",
         "zacksmash/fortify-ui": "^1.4"
     },
     "require-dev": {
