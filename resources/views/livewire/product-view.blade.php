@@ -77,7 +77,7 @@
 
                             <div class="uk-panel uk-margin uk-width-xlarge uk-margin-auto@m">
                                 <p class="uk-label uk-label-success">
-                                    {{ $product->type }}
+                                    {{ $product->type->name }}
                                 </p>
                             </div>
                             {{-- ratings --}}
