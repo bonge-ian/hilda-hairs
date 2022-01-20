@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->index()->constrained('categories')->cascadeOnDelete();
-            $table->enum('type', HairTypeEnum::toValues());
+            $table->unsignedInteger('type');
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('caption')->nullable();

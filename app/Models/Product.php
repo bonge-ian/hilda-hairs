@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Traits\{HasPrice, IsOrderable};
-use App\Models\Casts\HairTypeCast;
+use App\Enums\HairTypeEnum;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Traits\{HasPrice, IsOrderable};
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -29,7 +29,7 @@ class Product extends Model
     protected $casts = [
         'is_viewable' => 'boolean',
         'images' => 'array',
-        'type' => HairTypeCast::class
+        'type' => HairTypeEnum::class
     ];
 
     protected $with = ['category'];

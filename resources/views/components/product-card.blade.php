@@ -4,7 +4,7 @@
         <livewire:wishlist :product="$product" :ratio="0.8" :wire:key="$product->id" />
     </div>
     @endauth
-    <div class="uk-card-badge uk-label uk-position-top-right uk-position-small">{{ $product->type }}</div>
+    <div class="uk-card-badge uk-label uk-position-top-right uk-position-small">{{ $product->type->name }}</div>
     <div class="uk-card-media-top uk-cover-container">
         <a href="{{ route('product.show', $product->slug) }}" class="uk-link-reset">
             <canvas width="433" height="650"></canvas>
