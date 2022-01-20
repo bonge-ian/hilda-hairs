@@ -15,11 +15,16 @@ class StockSeeder extends Seeder
      */
     public function run()
     {
-        Stock::factory()
-            ->count(1000)
+        $stocks = Stock::factory()
+            ->count(3000)
             ->sequence(
                 fn ($sequence) => ['product_variation_id' => ProductVariation::distinct()->get('id')->random()]
             )
-            ->create();
+            ->make();
+
+        $chunks = $stocks->chunk(500);
+        $chunks->each(
+            fn ($chunk) => Stock::insert($chunk->toArray())
+        );
     }
 }
