@@ -35,13 +35,35 @@
                     <div class="uk-panel uk-width-3-5@m">
                         <h2 class="uk-margin">Billing Details</h2>
                         <div class="uk-grid uk-grid-medium uk-child-width-1-1" uk-grid>
-                            <div class="uk-width-1-1">
-                                <label for="name">Fullname</label>
+                            <div class="uk-width-1-2@m">
+                                <label for="name">Firstname</label>
                                 <div class="uk-form-controls">
-                                    <input type="text" wire:model.lazy="name" name="name" id="name" placeholder="Marie Hilda" class="uk-input @error('name') uk-form-danger @enderror"
+                                    <input type="text"
+                                        wire:model.lazy="firstname"
+                                        name="firstname"
+                                        id="firstname"
+                                        placeholder="Hilda"
+                                        class="uk-input @error('firstname') uk-form-danger @enderror"
                                     @if (auth()->check()) disabled @endif>
                                 </div>
-                                @error('name')
+                                @error('firstname')
+                                <div class="uk-margin-small">
+                                    <x-alert :message="$message" close="false" type="danger" />
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="uk-width-1-2@m">
+                                <label for="name">Lastname</label>
+                                <div class="uk-form-controls">
+                                    <input type="text"
+                                        wire:model.lazy="lastname"
+                                        name="lastname"
+                                        id="lastname"
+                                        placeholder="Hilda"
+                                        class="uk-input @error('lastname') uk-form-danger @enderror"
+                                        @if (auth()->check()) disabled @endif>
+                                </div>
+                                @error('lastname')
                                 <div class="uk-margin-small">
                                     <x-alert :message="$message" close="false" type="danger" />
                                 </div>
