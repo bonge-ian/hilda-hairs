@@ -25,6 +25,7 @@ class FortifyUIServiceProvider extends ServiceProvider
     public function boot()
     {
         Fortify::loginView(function () {
+            session()->put('url.intended', url()->previous());
             return view('auth.login');
         });
 

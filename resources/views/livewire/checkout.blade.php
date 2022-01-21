@@ -11,41 +11,11 @@
                     <div class="uk-tile uk-padding-small uk-tile-muted uk-panel uk-margin">
                         <p class="uk-display-inline">
                             <span>Returning Customer?</span>
-                            <a href="#" class="uk-link-heading" uk-toggle="target: #login-form;animation: uk-animation-slide-top-small, uk-animation-slide-top-small;queued: true">Click here to login</a>
+                            <a href="{{ route('login') }}" class="uk-link-heading">Click here to login</a>
                         </p>
 
                     </div>
-                    <aside class="uk-panel uk-margin uk-tile uk-tile-muted uk-padding-small" id="login-form" hidden>
-                        <form wire:submit.prevent="login" action="post" class="uk-form-stacked uk-grid-medium" uk-grid>
-                            <div class="uk-width-1-1">
-                                <label for="user-email">Email</label>
-                                <div class="uk-form-controls">
-                                    <input type="email" name="email" id="email" class="uk-input @error('email') uk-form-danger @enderror">
-                                </div>
-                                @error('email')
-                                <div class="uk-margin">
-                                    <x-alert :message="$message" type="danger" />
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="uk-width-1-1">
-                                <label for="user-email">Password</label>
-                                <div class="uk-form-controls">
-                                    <input type="password" name="password" id="password"
-                                        class="uk-input @error('password') uk-form-danger @enderror">
-                                </div>
-                                @error('password')
-                                <div class="uk-margin">
-                                    <x-alert :message="$message" type="danger" />
-                                </div>
-                                @enderror
-                            </div>
 
-                            <div class="uk-width-1-1">
-                                <button type="submit" class="uk-button uk-button-default">Login</button>
-                            </div>
-                        </form>
-                    </aside>
                 @endguest
                 <div class="uk-tile uk-padding-small uk-tile-muted uk-panel uk-margin">
                     <p class="uk-display-inline">
