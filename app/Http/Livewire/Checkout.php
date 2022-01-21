@@ -25,7 +25,9 @@ class Checkout extends Component
 
     public string $email = '';
 
-    public string $name = '';
+    public string $firstname = '';
+
+    public string $lastname = '';
 
     public ?string $orderNotes = '';
 
@@ -70,7 +72,8 @@ class Checkout extends Component
         }
 
         $this->fill([
-            'name' => Auth::user()->name,
+            'firstname' => Auth::user()->firstname,
+            'lastname' => Auth::user()->lastname,
             'email' => Auth::user()->email,
             'phone' => Auth::user()->phone,
         ]);
