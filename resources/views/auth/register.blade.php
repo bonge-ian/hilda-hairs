@@ -13,16 +13,32 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="uk-margin">
-            <label class="uk-form-label">{{ __('Name') }}</label>
+            <label class="uk-form-label">{{ __('Firstname') }}</label>
 
             <div class="uk-width-1-1">
                 <div class="uk-inline uk-width-1-1">
                     <span class="uk-form-icon" uk-icon="icon: user"></span>
-                    <input class="uk-input @error('name') uk-form-danger  @enderror" type="text" name="name"
-                        value="{{ old('name') }}" required autofocus autocomplete="name" placeholder="Marie Hilda" />
+                    <input type="text" name="firstname" class="uk-input @error('firstname') uk-form-danger  @enderror"
+                        value="{{ old('firstname') }}" required autofocus autocomplete="firstname"
+                        placeholder="Marie" />
                 </div>
 
-                @error('name')
+                @error('firstname')
+                <x-alert type="danger" :message="$message"></x-alert>
+                @enderror
+            </div>
+
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label">{{ __('Lastname') }}</label>
+            <div class="uk-width-1-1">
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                    <input type="text" name="lastname" class="uk-input @error('lastname') uk-form-danger  @enderror"
+                        value="{{ old('lastname') }}" required autocomplete="lastname" placeholder="Hilda" />
+                </div>
+
+                @error('lastname')
                 <x-alert type="danger" :message="$message"></x-alert>
                 @enderror
             </div>
