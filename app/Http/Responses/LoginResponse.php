@@ -8,19 +8,17 @@ use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 class LoginResponse implements LoginResponseContract
 {
 
-    /**
-
-     * @param  $request
-
-     * @return mixed
-
-     */
-
     public function toResponse($request)
     {
-        // $home = auth()->user()->is_admin ? '/admin' : '/dashboard';
-        $home = RouteServiceProvider::HOME;
-        
-        return redirect()->intended($home);
+        $redirectRoute = "";
+
+        if (session()->has('users')) {
+            $redirectRoute = session()->pull('url.intended');
+        } else {
+            $redirectRoute = RouteServiceProvider::HOME;
+            // $redirectRoute = auth()->user()->isAdmin() ? '/admin/' : '/dashboard';
+        }
+
+        return redirect()->intended($redirectRoute);
     }
 }
