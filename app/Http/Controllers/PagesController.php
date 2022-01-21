@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 
 class PagesController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         $featuredProducts = Cache::remember(
             'featured-products',

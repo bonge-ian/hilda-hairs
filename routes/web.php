@@ -9,25 +9,32 @@ use App\Http\Livewire\ProductListings;
 use App\Http\Livewire\ProductView;
 
 
-Route::get('/', [PagesController::class, 'index']);
+Route::get('/', PagesController::class);
 
 Route::view('dashboard', 'dashboard')
-	->name('dashboard')
-	->middleware(['auth', 'verified']);
+    ->name('dashboard')
+    ->middleware(['auth', 'verified']);
 
-Route::prefix('user')->middleware(['auth', 'verified'])->group(function () {
-	Route::view('profile', 'profile.show');
-});
+Route::prefix('user')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::view('profile', 'profile.show');
+    });
 
-Route::prefix('categories')->name('category.')->group(function () {
-	Route::get('/', [CategoryController::class, 'index'])->name('index');
-	Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('show');
-});
+Route::prefix('categories')
+    ->controller(CategoryController::class)
+    ->name('category.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{category:slug}', 'show')->name('show');
+    });
 
-Route::prefix('products')->name('product.')->group(function () {
-    Route::get('/', ProductListings::class)->name('index');
-	Route::get('/{product:slug}', ProductView::class)->name('show');
-});
+Route::prefix('products')
+    ->name('product.')
+    ->group(function () {
+        Route::get('/', ProductListings::class)->name('index');
+        Route::get('/{product:slug}', ProductView::class)->name('show');
+    });
 
 Route::get('/cart', CartSummary::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
