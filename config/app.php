@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Africa/Nairobi',
 
     /*
     |--------------------------------------------------------------------------
@@ -179,6 +179,7 @@ return [
         App\Providers\BladeComponentServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
         App\Providers\FakerServiceProvider::class,
+        App\Providers\EloquentServiceProvider::class,
 
     ],
 
